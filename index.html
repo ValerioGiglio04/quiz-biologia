@@ -1,0 +1,1405 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz Biologia</title>
+    <style>
+      /* --- quiz.css inlined --- */
+      body {
+        background: #181a20;
+        margin: 0;
+        padding: 0;
+      }
+      .quiz-container {
+        background: #23272f;
+        border-radius: 12px;
+        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.25);
+        padding: 32px 16px;
+        max-width: 500px;
+        width: 100%;
+        margin: 24px auto;
+        font-family: 'Segoe UI', Arial, sans-serif;
+      }
+      h1 {
+        text-align: center;
+        color: #e3e8f0;
+        margin-bottom: 24px;
+        font-size: 2rem;
+      }
+      .quiz-options-top {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        margin-bottom: 18px;
+      }
+      .show-answers-toggle {
+        color: #bfc7d5;
+        font-size: 1.1rem;
+        user-select: none;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .show-answers-toggle input[type='checkbox'] {
+        accent-color: #3b4cca;
+        width: 20px;
+        height: 20px;
+      }
+      .controls {
+        display: flex;
+        gap: 14px;
+        justify-content: center;
+        margin-bottom: 16px;
+        margin-top: 10px;
+        flex-wrap: wrap;
+      }
+      button {
+        background: #3b4cca;
+        color: #fff;
+        border: none;
+        border-radius: 6px;
+        padding: 16px 0;
+        font-size: 1.15rem;
+        cursor: pointer;
+        transition: background 0.2s, transform 0.1s;
+        margin: 0 2px;
+        min-width: 120px;
+        min-height: 48px;
+        font-weight: 500;
+        letter-spacing: 0.02em;
+        width: 160px;
+        box-sizing: border-box;
+        display: block;
+      }
+      button:active {
+        transform: scale(0.97);
+      }
+      button:disabled {
+        background: #444a5a;
+        cursor: not-allowed;
+      }
+      .question {
+        font-size: 1.25rem;
+        margin-bottom: 18px;
+        color: #e3e8f0;
+        line-height: 1.4;
+      }
+      .options {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        margin-bottom: 28px;
+      }
+      .option {
+        background: #23272f;
+        border: 1.5px solid #353b47;
+        border-radius: 6px;
+        padding: 18px 12px;
+        font-size: 1.1rem;
+        cursor: pointer;
+        transition: background 0.2s, border 0.2s, color 0.2s;
+        text-align: left;
+        color: #e3e8f0;
+        opacity: 1;
+        width: 100%;
+        box-sizing: border-box;
+      }
+      .option:not(.selected):not(.correct):not(.incorrect) {
+        background: #23272f;
+        border: 1.5px solid #353b47;
+        color: #e3e8f0;
+        opacity: 1;
+      }
+      .option.selected {
+        background: #3b4cca;
+        border-color: #6c8cff;
+        color: #fff;
+        font-weight: bold;
+      }
+      .option.correct {
+        background: #2e7d32;
+        border-color: #66bb6a;
+        color: #e3ffe3;
+        font-weight: bold;
+      }
+      .option.incorrect {
+        background: #b71c1c;
+        border-color: #ef5350;
+        color: #fff0f0;
+        font-weight: bold;
+      }
+      .option:hover:not(.selected):not(.correct):not(.incorrect) {
+        background: #2c3140;
+        border-color: #6c8cff;
+      }
+      #quiz-result {
+        text-align: center;
+        font-size: 1.2rem;
+        color: #e3e8f0;
+        margin-top: 24px;
+      }
+      .review {
+        margin-top: 24px;
+      }
+      .review .question {
+        margin-bottom: 8px;
+        color: #e3e8f0;
+        font-size: 1.1rem;
+      }
+      .review .options {
+        margin-bottom: 16px;
+      }
+      @media (max-width: 600px) {
+        .quiz-container {
+          padding: 10px 2px;
+          max-width: 100vw;
+          margin: 0;
+          border-radius: 0;
+          min-height: 100vh;
+        }
+        h1 {
+          font-size: 1.3rem;
+        }
+        .controls {
+          margin-top: 100px;
+          display: flex;
+          flex-direction: row;
+          margin-bottom: 10px;
+        }
+        button {
+          min-width: unset;
+          font-size: 1.08rem;
+          padding: 14px 0;
+        }
+        .question {
+          font-size: 1.08rem;
+        }
+        .option {
+          font-size: 1rem;
+          padding: 14px 8px;
+        }
+        .quiz-options-top {
+          justify-content: center;
+          margin-bottom: 10px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="quiz-container">
+      <h1>Quiz Biologia</h1>
+      <div class="quiz-options-top">
+        <label class="show-answers-toggle">
+          <input type="checkbox" id="show-answers-toggle" />
+          Mostra risposte subito
+        </label>
+      </div>
+      <div id="quiz-content"></div>
+      <div class="controls" id="quiz-controls">
+        <button id="prev-btn" style="display: none">Prec</button>
+        <button id="next-btn" style="display: none">Pross</button>
+        <button id="submit-btn" style="display: none">Invia</button>
+        <button id="restart-btn" style="display: none">Ricomincia</button>
+        <button id="review-btn" style="display: none">Review</button>
+      </div>
+      <div id="quiz-result" style="display: none"></div>
+    </div>
+    <script>
+      // QUIZ_DATA contiene tutte le domande (incolla qui il tuo array JSON)
+      const QUIZ_DATA = [
+        {
+          "domanda": "Qual è l'evento fondamentale che ha dato origine alle cellule vegetali autotrofe?",
+          "opzioni": [
+            "A) L'ingestione di un mitocondrio",
+            "B) L'ingestione di un cianobatterio senza digerirlo",
+            "C) La mutazione spontanea dei vacuoli",
+            "D) La formazione della parete cellulare di lignina"
+          ],
+          "risposta_corretta": "B) L'ingestione di un cianobatterio senza digerirlo"
+        },
+        {
+          "domanda": "Quale enzima ha il compito di degradare l'anidride carbonica in ossigeno e zucchero?",
+          "opzioni": [
+            "A) ATPasi",
+            "B) Elicasi",
+            "C) Rubisco",
+            "D) Amilasi"
+          ],
+          "risposta_corretta": "C) Rubisco"
+        },
+        {
+          "domanda": "Le Briofite sono considerate le prime piante emerse sulla terra. Cosa le caratterizza?",
+          "opzioni": [
+            "A) Presenza di vasi conduttori",
+            "B) Produzione di fiori e frutti",
+            "C) Formazione di un embrione ma assenza di tessuti differenziati",
+            "D) Radici profonde e lignificate"
+          ],
+          "risposta_corretta": "C) Formazione di un embrione ma assenza di tessuti differenziati"
+        },
+        {
+          "domanda": "In quale periodo geologico sono comparse le foglie?",
+          "opzioni": [
+            "A) Cretaceo",
+            "B) Devoniano",
+            "C) Giurassico",
+            "D) Cambriano"
+          ],
+          "risposta_corretta": "B) Devoniano"
+        },
+        {
+          "domanda": "Cosa si intende per 'Isogamia'?",
+          "opzioni": [
+            "A) Gameti morfologicamente diversi",
+            "B) Riproduzione senza fusione di gameti",
+            "C) Unione di gameti morfologicamente uguali",
+            "D) Sviluppo di un individuo da una spora"
+          ],
+          "risposta_corretta": "C) Unione di gameti morfologicamente uguali"
+        },
+        {
+          "domanda": "Quali sono i pigmenti principali presenti nelle alghe verdi e nelle piante terrestri?",
+          "opzioni": [
+            "A) Clorofilla a e c",
+            "B) Clorofilla a e b",
+            "C) Ficoeritrina",
+            "D) Solo carotenoidi"
+          ],
+          "risposta_corretta": "B) Clorofilla a e b"
+        },
+        {
+          "domanda": "Qual è la funzione principale degli amiloplasti?",
+          "opzioni": [
+            "A) Fotosintesi",
+            "B) Trasporto di acqua",
+            "C) Riserva di amido",
+            "D) Sintesi proteica"
+          ],
+          "risposta_corretta": "C) Riserva di amido"
+        },
+        {
+          "domanda": "Quale struttura permette alle piante di combattere la forza di gravità e crescere in altezza?",
+          "opzioni": [
+            "A) Solo l'acqua",
+            "B) Il vacuolo",
+            "C) Cellulosa e lignina",
+            "D) La membrana plasmatica"
+          ],
+          "risposta_corretta": "C) Cellulosa e lignina"
+        },
+        {
+          "domanda": "Cosa definisce una pianta come 'Cormofita'?",
+          "opzioni": [
+            "A) La presenza di fiori",
+            "B) La presenza di radice, fusto e foglia",
+            "C) La capacità di vivere in acqua",
+            "D) La riproduzione tramite spore"
+          ],
+          "risposta_corretta": "B) La presenza di radice, fusto e foglia"
+        },
+        {
+          "domanda": "Le Pteridofite sono definite 'Crittogame Vascolari' perché:",
+          "opzioni": [
+            "A) Hanno semi ma non fiori",
+            "B) Non producono fiori o semi ma hanno sistemi di conduzione",
+            "C) Hanno solo tessuti tegumentali",
+            "D) Vivono solo in ambienti desertici"
+          ],
+          "risposta_corretta": "B) Non producono fiori o semi ma hanno sistemi di conduzione"
+        },
+        {
+          "domanda": "Cosa significa il termine 'Gimnosperme'?",
+          "opzioni": [
+            "A) Piante con fiore",
+            "B) Piante con seme nudo",
+            "C) Piante senza radici",
+            "D) Piante a riproduzione asessuata"
+          ],
+          "risposta_corretta": "B) Piante con seme nudo"
+        },
+        {
+          "domanda": "Qual è il vantaggio evolutivo della 'Sifonogamia'?",
+          "opzioni": [
+            "A) Permette la fotosintesi al buio",
+            "B) Consente il trasferimento del DNA maschile tramite un tubetto senza bisogno di acqua",
+            "C) Aumenta la produzione di ossigeno",
+            "D) Facilita la dispersione dei frutti"
+          ],
+          "risposta_corretta": "B) Consente il trasferimento del DNA maschile tramite un tubetto senza bisogno di acqua"
+        },
+        {
+          "domanda": "Nelle piante a seme, da cosa è protetto il gametofito femminile?",
+          "opzioni": [
+            "A) Dallo strobilo maschile",
+            "B) Dai granuli pollinici",
+            "C) Dallo sporofito femminile (ovulo)",
+            "D) Dalle radici"
+          ],
+          "risposta_corretta": "C) Dallo sporofito femminile (ovulo)"
+        },
+        {
+          "domanda": "Cosa sono le 'Perule'?",
+          "opzioni": [
+            "A) Cellule della radice",
+            "B) Foglie modificate che proteggono le gemme durante l'inverno",
+            "C) Pigmenti dei fiori",
+            "D) Aperture per lo scambio gassoso"
+          ],
+          "risposta_corretta": "B) Foglie modificate che proteggono le gemme durante l'inverno"
+        },
+        {
+          "domanda": "Quale tessuto è responsabile del trasporto della linfa grezza (acqua e sali)?",
+          "opzioni": [
+            "A) Floema",
+            "B) Xilema",
+            "C) Parenchima",
+            "D) Epidermide"
+          ],
+          "risposta_corretta": "B) Xilema"
+        },
+        {
+          "domanda": "Gli stomi sono formati da due cellule particolari chiamate:",
+          "opzioni": [
+            "A) Cellule del sughero",
+            "B) Cellule di guardia",
+            "C) Tracheidi",
+            "D) Sclereidi"
+          ],
+          "risposta_corretta": "B) Cellule di guardia"
+        },
+        {
+          "domanda": "Cosa sono i 'Cromoplasti'?",
+          "opzioni": [
+            "A) Plastidi incolori di riserva",
+            "B) Plastidi contenenti pigmenti gialli, arancio o rossi per fiori e frutti",
+            "C) Organelli per la respirazione cellulare",
+            "D) Tessuti di sostegno meccanico"
+          ],
+          "risposta_corretta": "B) Plastidi contenenti pigmenti gialli, arancio o rossi per fiori e frutti"
+        },
+        {
+          "domanda": "Quale parte della cellula vegetale accumula sostanze di scarto o pigmenti idrosolubili?",
+          "opzioni": [
+            "A) Mitocondrio",
+            "B) Cloroplasto",
+            "C) Vacuolo",
+            "D) Ribosoma"
+          ],
+          "risposta_corretta": "C) Vacuolo"
+        },
+        {
+          "domanda": "Le Angiosperme rappresentano circa quale percentuale delle piante conosciute?",
+          "opzioni": [
+            "A) 10%",
+            "B) 50%",
+            "C) 85%",
+            "D) 99%"
+          ],
+          "risposta_corretta": "C) 85%"
+        },
+        {
+          "domanda": "Cosa si intende per 'Guttazione'?",
+          "opzioni": [
+            "A) La caduta delle foglie in autunno",
+            "B) La fuoriuscita di gocce d'acqua dagli idatodi per regolare la pressione",
+            "C) L'assorbimento di nutrienti dal suolo",
+            "D) La formazione del polline"
+          ],
+          "risposta_corretta": "B) La fuoriuscita di gocce d'acqua dagli idatodi per regolare la pressione"
+        },
+        {
+          "domanda": "Qual è la sede principale della fotosintesi?",
+          "opzioni": [
+            "A) I mitocondri",
+            "B) I cloroplasti",
+            "C) I leucoplasti",
+            "D) Il nucleo"
+          ],
+          "risposta_corretta": "B) I cloroplasti"
+        },
+        {
+          "domanda": "I 'Tessuti Meristematici' sono caratterizzati da:",
+          "opzioni": [
+            "A) Cellule morte a maturità",
+            "B) Cellule in continua divisione",
+            "C) Pareti molto ispessite e lignificate",
+            "D) Grande accumulo di amido"
+          ],
+          "risposta_corretta": "B) Cellule in continua divisione"
+        },
+        {
+          "domanda": "In anatomia vegetale, il 'Cormo' è composto da:",
+          "opzioni": [
+            "A) Solo fusto",
+            "B) Radice, fusto, foglie",
+            "C) Solo fiore e frutto",
+            "D) Tallo e rizoidi"
+          ],
+          "risposta_corretta": "B) Radice, fusto, foglie"
+        },
+        {
+          "domanda": "Quale scienziato osservò che le piante 'detossificano' l'aria?",
+          "opzioni": [
+            "A) Darwin",
+            "B) Priestley",
+            "C) Mendel",
+            "D) Linneo"
+          ],
+          "risposta_corretta": "B) Priestley"
+        },
+        {
+          "domanda": "Il 'Seme' è un vantaggio evolutivo perché garantisce:",
+          "opzioni": [
+            "A) Solo la fotosintesi immediata",
+            "B) La quiescenza e la protezione dell'embrione",
+            "C) La perdita di geni superflui",
+            "D) L'immobilità della pianta"
+          ],
+          "risposta_corretta": "B) La quiescenza e la protezione dell'embrione"
+        },
+        {
+          "domanda": "Cosa trasporta il 'Floema'?",
+          "opzioni": [
+            "A) Solo acqua",
+            "B) Linfa elaborata (zuccheri)",
+            "C) Solo sali minerali",
+            "D) Aria"
+          ],
+          "risposta_corretta": "B) Linfa elaborata (zuccheri)"
+        },
+        {
+          "domanda": "Le 'Trachee' sono elementi conduttori tipici di:",
+          "opzioni": [
+            "A) Muschi",
+            "B) Gimnosperme",
+            "C) Angiosperme",
+            "D) Alghe rosse"
+          ],
+          "risposta_corretta": "C) Angiosperme"
+        },
+        {
+          "domanda": "Qual è la funzione del 'Fellogeno'?",
+          "opzioni": [
+            "A) Produrre zuccheri",
+            "B) Produrre sughero (tessuto tegumentale secondario)",
+            "C) Assorbire acqua",
+            "D) Formare i fiori"
+          ],
+          "risposta_corretta": "B) Produrre sughero (tessuto tegumentale secondario)"
+        },
+        {
+          "domanda": "Nello sviluppo della foglia, quando essa diventa 'sorgente'?",
+          "opzioni": [
+            "A) Appena spunta dalla gemma",
+            "B) Quando raggiunge circa il 25% della dimensione finale e inizia a esportare zuccheri",
+            "C) Solo dopo la fioritura",
+            "D) Quando cade a terra"
+          ],
+          "risposta_corretta": "B) Quando raggiunge circa il 25% della dimensione finale e inizia a esportare zuccheri"
+        },
+        {
+          "domanda": "I 'Tessuti di Sostegno' comprendono:",
+          "opzioni": [
+            "A) Epidermide ed endoderma",
+            "B) Collenchima e sclerenchima",
+            "C) Xilema e floema",
+            "D) Parenchima aerifero"
+          ],
+          "risposta_corretta": "B) Collenchima e sclerenchima"
+        },
+        {
+          "domanda": "Quale di queste piante è una Gimnosperma?",
+          "opzioni": [
+            "A) Rosa",
+            "B) Quercia",
+            "C) Pino",
+            "D) Tulipano"
+          ],
+          "risposta_corretta": "C) Pino"
+        },
+        {
+          "domanda": "Il 'Rapporto di Superficie/Volume' nelle foglie delle Gimnosperme è solitamente:",
+          "opzioni": [
+            "A) Molto alto per massimizzare la fotosintesi",
+            "B) Ridotto (aghi) per limitare l'evapotraspirazione",
+            "C) Inesistente",
+            "D) Variabile ogni ora"
+          ],
+          "risposta_corretta": "B) Ridotto (aghi) per limitare l'evapotraspirazione"
+        },
+        {
+          "domanda": "Cosa sono le 'Lenticelle'?",
+          "opzioni": [
+            "A) Piccole radici",
+            "B) Aperture nel sughero per lo scambio gassoso",
+            "C) Parte del fiore",
+            "D) Organelli di riserva"
+          ],
+          "risposta_corretta": "B) Aperture nel sughero per lo scambio gassoso"
+        },
+        {
+          "domanda": "Nelle Angiosperme, l'impollinazione può essere:",
+          "opzioni": [
+            "A) Solo tramite acqua",
+            "B) Anemofila (vento) o Zoofila (animali)",
+            "C) Solo tramite contatto diretto",
+            "D) Non esiste impollinazione"
+          ],
+          "risposta_corretta": "B) Anemofila (vento) o Zoofila (animali)"
+        },
+        {
+          "domanda": "Il 'Tegumento' del seme ha la funzione di:",
+          "opzioni": [
+            "A) Fare la fotosintesi",
+            "B) Protezione meccanica e contro la disidratazione",
+            "C) Produrre polline",
+            "D) Assorbire sali minerali"
+          ],
+          "risposta_corretta": "B) Protezione meccanica e contro la disidratazione"
+        },
+        {
+          "domanda": "Qual è il principale carboidrato di riserva delle piante?",
+          "opzioni": [
+            "A) Glucosio",
+            "B) Amido",
+            "C) Cellulosa",
+            "D) Saccarosio"
+          ],
+          "risposta_corretta": "B) Amido"
+        },
+        {
+          "domanda": "Il 'Mesofillo' è un tessuto tipico di quale organo?",
+          "opzioni": [
+            "A) Radice",
+            "B) Fusto",
+            "C) Foglia",
+            "D) Seme"
+          ],
+          "risposta_corretta": "C) Foglia"
+        },
+        {
+          "domanda": "I 'Peli Urticanti' dell'ortica appartengono ai:",
+          "opzioni": [
+            "A) Tessuti meccanici",
+            "B) Tessuti secretori esterni",
+            "C) Tessuti conduttori",
+            "D) Tessuti meristematici"
+          ],
+          "risposta_corretta": "B) Tessuti secretori esterni"
+        },
+        {
+          "domanda": "La 'Zona di Struttura Primaria' del fusto deriva da:",
+          "opzioni": [
+            "A) Cambio cribro-vascolare",
+            "B) Meristemi apicali",
+            "C) Fellogeno",
+            "D) Radici laterali"
+          ],
+          "risposta_corretta": "B) Meristemi apicali"
+        },
+        {
+          "domanda": "Quale pigmento è responsabile del colore verde delle piante?",
+          "opzioni": [
+            "A) Antocianina",
+            "B) Carotene",
+            "C) Clorofilla",
+            "D) Xantofilla"
+          ],
+          "risposta_corretta": "C) Clorofilla"
+        },
+        {
+          "domanda": "Il 'Polline' rappresenta:",
+          "opzioni": [
+            "A) Il gamete femminile",
+            "B) Il gametofito maschile",
+            "C) Lo zigote",
+            "D) Il frutto"
+          ],
+          "risposta_corretta": "B) Il gametofito maschile"
+        },
+        {
+          "domanda": "Cosa si forma dopo la fecondazione dell'ovulo?",
+          "opzioni": [
+            "A) La radice",
+            "B) Lo zigote (che diventerà embrione)",
+            "C) Un nuovo stoma",
+            "D) Solo ossigeno"
+          ],
+          "risposta_corretta": "B) Lo zigote (che diventerà embrione)"
+        },
+        {
+          "domanda": "Le piante 'Dioiche' hanno:",
+          "opzioni": [
+            "A) Fiori maschili e femminili sulla stessa pianta",
+            "B) Organi sessuali su piante diverse (maschio e femmina separati)",
+            "C) Solo riproduzione asessuata",
+            "D) Fiori che non si aprono mai"
+          ],
+          "risposta_corretta": "B) Organi sessuali su piante diverse (maschio e femmina separati)"
+        },
+        {
+          "domanda": "Qual è il ruolo dei 'Canali Resiniferi' nei pini?",
+          "opzioni": [
+            "A) Trasporto di zuccheri",
+            "B) Protezione e cicatrizzazione tramite resina",
+            "C) Assorbimento di $CO_2$",
+            "D) Riserva di acqua"
+          ],
+          "risposta_corretta": "B) Protezione e cicatrizzazione tramite resina"
+        },
+        {
+          "domanda": "L'epidermide fogliare è spesso ricoperta da una sostanza impermeabile chiamata:",
+          "opzioni": [
+            "A) Chitina",
+            "B) Cuticola (cutina)",
+            "C) Suberina",
+            "D) Miosina"
+          ],
+          "risposta_corretta": "B) Cuticola (cutina)"
+        },
+        {
+          "domanda": "Cosa si intende per 'Accrescimento Secondario'?",
+          "opzioni": [
+            "A) Allungamento del fusto",
+            "B) Aumento dello spessore/diametro di fusto e radice",
+            "C) Produzione di nuove foglie",
+            "D) Germinazione del seme"
+          ],
+          "risposta_corretta": "B) Aumento dello spessore/diametro di fusto e radice"
+        },
+        {
+          "domanda": "Il 'Legno' (nella terminologia comune) corrisponde scientificamente a:",
+          "opzioni": [
+            "A) Floema secondario",
+            "B) Xilema secondario",
+            "C) Corteccia",
+            "D) Epidermide"
+          ],
+          "risposta_corretta": "B) Xilema secondario"
+        },
+        {
+          "domanda": "Quale di questi è un 'Tessuto Tegumentale Esterno Secondario'?",
+          "opzioni": [
+            "A) Epidermide",
+            "B) Sughero",
+            "C) Endoderma",
+            "D) Esoderma"
+          ],
+          "risposta_corretta": "B) Sughero"
+        },
+        {
+          "domanda": "Cosa sono i 'Tilacoidi'?",
+          "opzioni": [
+            "A) Parti della radice",
+            "B) Sacchetti membranosi nei cloroplasti dove avviene la fase luminosa della fotosintesi",
+            "C) Cellule morte del legno",
+            "D) Pigmenti rossi"
+          ],
+          "risposta_corretta": "B) Sacchetti membranosi nei cloroplasti dove avviene la fase luminosa della fotosintesi"
+        },
+        {
+          "domanda": "La 'Meiosi' nelle piante serve a produrre:",
+          "opzioni": [
+            "A) Gameti diretti (nella maggior parte)",
+            "B) Meiospore (n)",
+            "C) Cellule somatiche",
+            "D) Cloni identici"
+          ],
+          "risposta_corretta": "B) Meiospore (n)"
+        },
+        {
+          "domanda": "Il 'Cianobatterio' è considerato il precursore di quale organello?",
+          "opzioni": [
+            "A) Mitocondrio",
+            "B) Cloroplasto",
+            "C) Nucleo",
+            "D) Golgi"
+          ],
+          "risposta_corretta": "B) Cloroplasto"
+        },
+        {
+          "domanda": "Cosa si intende per 'Eterosporia'?",
+          "opzioni": [
+            "A) Produzione di un solo tipo di spora",
+            "B) Produzione di due tipi di spore: microspore e megaspore",
+            "C) Assenza di spore",
+            "D) Spore che volano nell'acqua"
+          ],
+          "risposta_corretta": "B) Produzione di due tipi di spore: microspore e megaspore"
+        },
+        {
+          "domanda": "Qual è la funzione del 'Nettare'?",
+          "opzioni": [
+            "A) Nutrire l'embrione",
+            "B) Attirare gli impollinatori (insetti, uccelli)",
+            "C) Proteggere dal freddo",
+            "D) Sostenere il fusto"
+          ],
+          "risposta_corretta": "B) Attirare gli impollinatori (insetti, uccelli)"
+        },
+        {
+          "domanda": "Il 'Tessuto Parenchimatico' con ampi spazi intercellulari per la circolazione dell'aria è detto:",
+          "opzioni": [
+            "A) Clorenchima",
+            "B) Parenchima aerifero",
+            "C) Parenchima acquifero",
+            "D) Parenchima di riserva"
+          ],
+          "risposta_corretta": "B) Parenchima aerifero"
+        },
+        {
+          "domanda": "Quale parte della pianta ha geotropismo positivo (cresce verso il basso)?",
+          "opzioni": [
+            "A) Fusto",
+            "B) Foglia",
+            "C) Radice",
+            "D) Fiore"
+          ],
+          "risposta_corretta": "C) Radice"
+        },
+        {
+          "domanda": "Cosa sono le 'Tracheidi'?",
+          "opzioni": [
+            "A) Vasi aperti alle estremità",
+            "B) Elementi conduttori meno evoluti con pareti trasversali integre o perforate",
+            "C) Cellule del floema",
+            "D) Cellule della pelle"
+          ],
+          "risposta_corretta": "B) Elementi conduttori meno evoluti con pareti trasversali integre o perforate"
+        },
+        {
+          "domanda": "La 'Lignina' conferisce ai tessuti:",
+          "opzioni": [
+            "A) Elasticità e morbidezza",
+            "B) Rigidità e resistenza alla compressione",
+            "C) Colore verde",
+            "D) Capacità di assorbire luce blu"
+          ],
+          "risposta_corretta": "B) Rigidità e resistenza alla compressione"
+        },
+        {
+          "domanda": "In quale organello avviene la sintesi dell'amido primario?",
+          "opzioni": [
+            "A) Vacuolo",
+            "B) Cloroplasto",
+            "C) Perossisoma",
+            "D) Lisosoma"
+          ],
+          "risposta_corretta": "B) Cloroplasto"
+        },
+        {
+          "domanda": "Qual è il ruolo del 'Cambio Cribro-Vascolare'?",
+          "opzioni": [
+            "A) Produrre solo corteccia",
+            "B) Produrre xilema verso l'interno e floema verso l'esterno",
+            "C) Produrre foglie",
+            "D) Fissare l'azoto"
+          ],
+          "risposta_corretta": "B) Produrre xilema verso l'interno e floema verso l'esterno"
+        },
+        {
+          "domanda": "Cos'è il 'Micropilo'?",
+          "opzioni": [
+            "A) Una piccola radice",
+            "B) Un'apertura nei tegumenti dell'ovulo che permette l'ingresso del tubetto pollinico",
+            "C) Un tipo di foglia",
+            "D) Un pigmento"
+          ],
+          "risposta_corretta": "B) Un'apertura nei tegumenti dell'ovulo che permette l'ingresso del tubetto pollinico"
+        },
+        {
+          "domanda": "Nelle Briofite, la generazione dominante è:",
+          "opzioni": [
+            "A) Lo sporofito",
+            "B) Il gametofito",
+            "C) Il seme",
+            "D) Il fiore"
+          ],
+          "risposta_corretta": "B) Il gametofito"
+        },
+        {
+          "domanda": "Le 'Idioblasti' sono:",
+          "opzioni": [
+            "A) Cellule identiche a tutte le altre",
+            "B) Cellule singole che differiscono marcatamente dal tessuto circostante per forma o contenuto",
+            "C) Gruppi di stomi",
+            "D) Radici aree"
+          ],
+          "risposta_corretta": "B) Cellule singole che differiscono marcatamente dal tessuto circostante per forma o contenuto"
+        },
+        {
+          "domanda": "Quale di queste funzioni NON è tipica delle radici?",
+          "opzioni": [
+            "A) Ancoraggio",
+            "B) Assorbimento di acqua",
+            "C) Fotosintesi clorofilliana (nella maggior parte)",
+            "D) Riserva di nutrienti"
+          ],
+          "risposta_corretta": "C) Fotosintesi clorofilliana (nella maggior parte)"
+        },
+        {
+          "domanda": "Cosa si intende per 'Sifonogamia'?",
+          "opzioni": [
+            "A) Fecondazione tramite acqua",
+            "B) Fecondazione tramite tubetto pollinico",
+            "C) Fecondazione tramite vento",
+            "D) Riproduzione per talea"
+          ],
+          "risposta_corretta": "B) Fecondazione tramite tubetto pollinico"
+        },
+        {
+          "domanda": "Il 'Latice' si trova in appositi canali chiamati:",
+          "opzioni": [
+            "A) Trachee",
+            "B) Laticiferi",
+            "C) Tubi cribrosi",
+            "D) Stomi"
+          ],
+          "risposta_corretta": "B) Laticiferi"
+        },
+        {
+          "domanda": "La 'Quiescenza' dei semi è interrotta da:",
+          "opzioni": [
+            "A) Solo luce",
+            "B) Condizioni ambientali favorevoli (acqua, temperatura, ossigeno)",
+            "C) Solo buio",
+            "D) Presenza di resina"
+          ],
+          "risposta_corretta": "B) Condizioni ambientali favorevoli (acqua, temperatura, ossigeno)"
+        },
+        {
+          "domanda": "Quale tessuto riveste le parti giovani della pianta?",
+          "opzioni": [
+            "A) Sughero",
+            "B) Epidermide",
+            "C) Xilema",
+            "D) Midollo"
+          ],
+          "risposta_corretta": "B) Epidermide"
+        },
+        {
+          "domanda": "Cosa contiene il 'Sacco Embrionale' nelle Angiosperme?",
+          "opzioni": [
+            "A) Il polline",
+            "B) Il gametofito femminile",
+            "C) Solo amido",
+            "D) La linfa grezza"
+          ],
+          "risposta_corretta": "B) Il gametofito femminile"
+        },
+        {
+          "domanda": "L'uscita dall'acqua delle piante ha richiesto l'evoluzione di:",
+          "opzioni": [
+            "A) Meno clorofilla",
+            "B) Sistemi di sostegno e protezione contro l'essiccamento",
+            "C) Una vita più breve",
+            "D) Più flagelli"
+          ],
+          "risposta_corretta": "B) Sistemi di sostegno e protezione contro l'essiccamento"
+        },
+        {
+          "domanda": "Cos'è lo 'Stroma'?",
+          "opzioni": [
+            "A) Un tipo di radice",
+            "B) La sostanza fluida all'interno del cloroplasto che circonda i tilacoidi",
+            "C) Il foro dello stoma",
+            "D) Una cellula morta"
+          ],
+          "risposta_corretta": "B) La sostanza fluida all'interno del cloroplasto che circonda i tilacoidi"
+        },
+        {
+          "domanda": "I 'Meristemi Apicali' si trovano:",
+          "opzioni": [
+            "A) Solo al centro del fusto",
+            "B) Alle estremità di radici e germogli",
+            "C) Nelle foglie adulte",
+            "D) Nel polline"
+          ],
+          "risposta_corretta": "B) Alle estremità di radici e germogli"
+        },
+        {
+          "domanda": "La 'Parete Cellulare' vegetale è composta principalmente da:",
+          "opzioni": [
+            "A) Proteine",
+            "B) Cellulosa",
+            "C) Glicogeno",
+            "D) Colesterolo"
+          ],
+          "risposta_corretta": "B) Cellulosa"
+        },
+        {
+          "domanda": "Cosa si intende per 'Zoocoria'?",
+          "opzioni": [
+            "A) Impollinazione tramite insetti",
+            "B) Dispersione dei semi tramite animali",
+            "C) Vita delle piante negli zoo",
+            "D) Respirazione animale"
+          ],
+          "risposta_corretta": "B) Dispersione dei semi tramite animali"
+        },
+        {
+          "domanda": "Le 'Pteridofite' (come le felci) si riproducono tramite:",
+          "opzioni": [
+            "A) Semi",
+            "B) Spore",
+            "C) Frutti",
+            "D) Fiori"
+          ],
+          "risposta_corretta": "B) Spore"
+        },
+        {
+          "domanda": "La 'Traspirazione' avviene principalmente attraverso:",
+          "opzioni": [
+            "A) Le radici",
+            "B) Gli stomi delle foglie",
+            "C) I vasi del legno",
+            "D) I peli urticanti"
+          ],
+          "risposta_corretta": "B) Gli stomi delle foglie"
+        },
+        {
+          "domanda": "Qual è la funzione del 'Collenchima'?",
+          "opzioni": [
+            "A) Trasporto",
+            "B) Sostegno in organi giovani in accrescimento",
+            "C) Fotosintesi",
+            "D) Secrezione di resina"
+          ],
+          "risposta_corretta": "B) Sostegno in organi giovani in accrescimento"
+        },
+        {
+          "domanda": "Il 'Plasmadesma' è:",
+          "opzioni": [
+            "A) Un organello",
+            "B) Un ponte citoplasmatico tra cellule vicine che attraversa la parete",
+            "C) Un tipo di pigmento",
+            "D) Una cellula del sangue vegetale"
+          ],
+          "risposta_corretta": "B) Un ponte citoplasmatico tra cellule vicine che attraversa la parete"
+        },
+        {
+          "domanda": "Cosa sono i 'Leucoplasti'?",
+          "opzioni": [
+            "A) Plastidi verdi",
+            "B) Plastidi incolori deputati alla riserva",
+            "C) Cellule della corteccia",
+            "D) Funghi simbionti"
+          ],
+          "risposta_corretta": "B) Plastidi incolori deputati alla riserva"
+        },
+        {
+          "domanda": "Le 'Gimnosperme' hanno vasi conduttori composti quasi esclusivamente da:",
+          "opzioni": [
+            "A) Trachee",
+            "B) Tracheidi",
+            "C) Tubi cribrosi",
+            "D) Fibre"
+          ],
+          "risposta_corretta": "B) Tracheidi"
+        },
+        {
+          "domanda": "Cosa si intende per 'Fillotassi'?",
+          "opzioni": [
+            "A) Lo studio delle radici",
+            "B) La disposizione delle foglie sul fusto",
+            "C) La caduta delle foglie",
+            "D) La forma della foglia"
+          ],
+          "risposta_corretta": "B) La disposizione delle foglie sul fusto"
+        },
+        {
+          "domanda": "Il 'Cambio Subero-Fellodermico' è detto anche:",
+          "opzioni": [
+            "A) Cambio vascolare",
+            "B) Fellogeno",
+            "C) Protoderma",
+            "D) Procambio"
+          ],
+          "risposta_corretta": "B) Fellogeno"
+        },
+        {
+          "domanda": "Qual è il prodotto finale della fotosintesi?",
+          "opzioni": [
+            "A) Solo acqua",
+            "B) Glucosio e Ossigeno",
+            "C) $CO_2$ e Azoto",
+            "D) Lignina"
+          ],
+          "risposta_corretta": "B) Glucosio e Ossigeno"
+        },
+        {
+          "domanda": "Le 'Piante Alophyte' sono adattate a:",
+          "opzioni": [
+            "A) Ambienti desertici",
+            "B) Ambienti ad alta salinità",
+            "C) Ambienti gelidi",
+            "D) Alte vette"
+          ],
+          "risposta_corretta": "B) Ambienti ad alta salinità"
+        },
+        {
+          "domanda": "Cosa sono i 'Tricomi'?",
+          "opzioni": [
+            "A) Radici",
+            "B) Peli epidermici con varie funzioni (difesa, secrezione, assorbimento)",
+            "C) Pigmenti neri",
+            "D) Parti del nucleo"
+          ],
+          "risposta_corretta": "B) Peli epidermici con varie funzioni (difesa, secrezione, assorbimento)"
+        },
+        {
+          "domanda": "L' 'Endosperma' nel seme ha funzione:",
+          "opzioni": [
+            "A) Protettiva",
+            "B) Nutritiva per l'embrione",
+            "C) Di ancoraggio",
+            "D) Fotosintetica"
+          ],
+          "risposta_corretta": "B) Nutritiva per l'embrione"
+        },
+        {
+          "domanda": "Quale di questi NON è un tessuto definitivo?",
+          "opzioni": [
+            "A) Parenchima",
+            "B) Meristema apicale",
+            "C) Sclerenchima",
+            "D) Xilema"
+          ],
+          "risposta_corretta": "B) Meristema apicale"
+        },
+        {
+          "domanda": "Nelle Angiosperme, il 'Carpello' (o pistillo) è:",
+          "opzioni": [
+            "A) L'organo riproduttivo maschile",
+            "B) L'organo riproduttivo femminile",
+            "C) Un tipo di foglia fotosintetica",
+            "D) Una radice modificata"
+          ],
+          "risposta_corretta": "B) L'organo riproduttivo femminile"
+        },
+        {
+          "domanda": "Cosa sono le 'Cellule Spermatiche' nel polline?",
+          "opzioni": [
+            "A) I gameti maschili",
+            "B) Cellule di riserva",
+            "C) Parte della parete",
+            "D) Cellule dello stoma"
+          ],
+          "risposta_corretta": "A) I gameti maschili"
+        },
+        {
+          "domanda": "Il 'Midollo' del fusto è costituito principalmente da:",
+          "opzioni": [
+            "A) Tessuto vascolare",
+            "B) Tessuto parenchimatico",
+            "C) Tessuto meccanico",
+            "D) Sughero"
+          ],
+          "risposta_corretta": "B) Tessuto parenchimatico"
+        },
+        {
+          "domanda": "Qual è la differenza principale tra trachee e tracheidi?",
+          "opzioni": [
+            "A) Le trachee sono più strette",
+            "B) Le trachee hanno pareti trasversali ampiamente perforate o assenti, facilitando il flusso",
+            "C) Le tracheidi sono vive a maturità",
+            "D) Non c'è differenza"
+          ],
+          "risposta_corretta": "B) Le trachee hanno pareti trasversali ampiamente perforate o assenti, facilitando il flusso"
+        },
+        {
+          "domanda": "Il 'Fiore' è considerato:",
+          "opzioni": [
+            "A) Un fusto modificato con foglie specializzate per la riproduzione",
+            "B) Una radice che cresce verso l'alto",
+            "C) Un accumulo di scarti",
+            "D) Un parassita della pianta"
+          ],
+          "risposta_corretta": "A) Un fusto modificato con foglie specializzate per la riproduzione"
+        },
+        {
+          "domanda": "Cosa si intende per 'Oogamia'?",
+          "opzioni": [
+            "A) Gameti uguali e mobili",
+            "B) Gamete femminile grande e immobile, gamete maschile piccolo e mobile",
+            "C) Riproduzione solo per frammentazione",
+            "D) Fusione di due radici"
+          ],
+          "risposta_corretta": "B) Gamete femminile grande e immobile, gamete maschile piccolo e mobile"
+        },
+        {
+          "domanda": "Quale organello è sede della respirazione cellulare?",
+          "opzioni": [
+            "A) Cloroplasto",
+            "B) Mitocondrio",
+            "C) Vacuolo",
+            "D) Nucleo"
+          ],
+          "risposta_corretta": "B) Mitocondrio"
+        },
+        {
+          "domanda": "I 'Tessuti Secretori' possono essere:",
+          "opzioni": [
+            "A) Solo esterni",
+            "B) Sia interni che esterni",
+            "C) Solo nelle radici",
+            "D) Solo nei fiori"
+          ],
+          "risposta_corretta": "B) Sia interni che esterni"
+        },
+        {
+          "domanda": "Qual è il vantaggio della 'Ricombinazione Sessuale'?",
+          "opzioni": [
+            "A) Creare cloni identici",
+            "B) Aumentare la variabilità genetica e l'adattamento",
+            "C) Consumare meno energia",
+            "D) Produrre più amido"
+          ],
+          "risposta_corretta": "B) Aumentare la variabilità genetica e l'adattamento"
+        },
+        {
+          "domanda": "Nelle Angiosperme, il 'Frutto' deriva dalla trasformazione di:",
+          "opzioni": [
+            "A) Seme",
+            "B) Ovario",
+            "C) Foglia",
+            "D) Radice"
+          ],
+          "risposta_corretta": "B) Ovario"
+        },
+        {
+          "domanda": "Cosa si intende per 'Piante Monoiche'?",
+          "opzioni": [
+            "A) Piante con un solo fiore",
+            "B) Piante che portano fiori maschili e femminili distinti sullo stesso individuo",
+            "C) Piante che vivono un solo anno",
+            "D) Piante senza vasi"
+          ],
+          "risposta_corretta": "B) Piante che portano fiori maschili e femminili distinti sullo stesso individuo"
+        },
+        {
+          "domanda": "Il 'Parenchima di Riserva' si trova spesso in:",
+          "opzioni": [
+            "A) Foglie fotosintetiche",
+            "B) Tuberi, bulbi e semi",
+            "C) Solo nei petali",
+            "D) Solo nel polline"
+          ],
+          "risposta_corretta": "B) Tuberi, bulbi e semi"
+        },
+        {
+          "domanda": "Quale di queste affermazioni sulla 'Rubisco' è corretta?",
+          "opzioni": [
+            "A) È la proteina più abbondante sulla Terra",
+            "B) Serve a produrre ATP",
+            "C) Si trova solo nelle radici",
+            "D) È un pigmento rosso"
+          ],
+          "risposta_corretta": "A) È la proteina più abbondante sulla Terra"
+        }
+      ]
+      let quiz = [];
+      let userAnswers = [];
+      let current = 0;
+      let submitted = false;
+      let showAnswersNow = false;
+      const NUM_QUESTIONS = 30;
+
+      const quizContent = document.getElementById('quiz-content');
+      const quizResult = document.getElementById('quiz-result');
+      const prevBtn = document.getElementById('prev-btn');
+      const nextBtn = document.getElementById('next-btn');
+      const submitBtn = document.getElementById('submit-btn');
+      const restartBtn = document.getElementById('restart-btn');
+      const reviewBtn = document.getElementById('review-btn');
+      const showAnswersToggle = document.getElementById('show-answers-toggle');
+
+      if (showAnswersToggle) {
+        showAnswersToggle.addEventListener('change', function () {
+          showAnswersNow = showAnswersToggle.checked;
+          renderQuestion();
+          updateControls();
+        });
+      }
+
+      function shuffleArray(arr) {
+        for (let i = arr.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [arr[i], arr[j]] = [arr[j], arr[i]];
+        }
+        return arr;
+      }
+
+      function loadQuiz() {
+        // Rimuovi le domande duplicate basandosi sul testo della domanda
+        const uniqueQuestions = [];
+        const seenQuestions = new Set();
+
+        QUIZ_DATA.forEach((question) => {
+          if (!seenQuestions.has(question.domanda)) {
+            seenQuestions.add(question.domanda);
+            uniqueQuestions.push(question);
+          }
+        });
+        console.log({ uniqueQuestions });
+        let allQuestions = uniqueQuestions.slice();
+        allQuestions = shuffleArray(allQuestions);
+
+        // Assicurati di non superare il numero di domande disponibili
+        const questionsToUse = Math.min(NUM_QUESTIONS, allQuestions.length);
+
+        quiz = allQuestions.slice(0, questionsToUse).map((q) => {
+          const opzioniShuffled = shuffleArray(q.opzioni.slice());
+          return {
+            ...q,
+            opzioni: opzioniShuffled
+          };
+        });
+
+        userAnswers = quiz.map(() => ({ risposta: null }));
+        current = 0;
+        submitted = false;
+        quizResult.style.display = 'none';
+        quizContent.style.display = '';
+        prevBtn.style.display = 'inline-block';
+        nextBtn.style.display = 'inline-block';
+        submitBtn.style.display = 'inline-block';
+        restartBtn.style.display = 'none';
+        reviewBtn.style.display = 'none';
+        if (showAnswersToggle) showAnswersToggle.disabled = false;
+        renderQuestion();
+        updateControls();
+      }
+
+      function renderQuestion() {
+        const q = quiz[current];
+        const userAnswer = userAnswers[current].risposta;
+        let optionsHtml = '';
+        q.opzioni.forEach((opt) => {
+          let cls = '';
+          let disabled = '';
+          if (showAnswersNow && userAnswer) {
+            if (opt === q.risposta_corretta) cls = 'correct';
+            if (userAnswer === opt && opt !== q.risposta_corretta)
+              cls = 'incorrect selected';
+            if (userAnswer === opt && opt === q.risposta_corretta)
+              cls = 'correct selected';
+            disabled = 'disabled';
+          } else if (userAnswer === opt) {
+            cls = 'selected';
+          }
+          optionsHtml += `<button class="option${
+            cls ? ' ' + cls : ''
+          }" data-opt="${opt}" ${disabled}>${opt
+            .replace('A)', '')
+            .replace('B)', '')
+            .replace('C)', '')
+            .replace('D)', '')}</button>`;
+        });
+        quizContent.innerHTML = `
+        <div class="question">Domanda ${current + 1} di ${quiz.length}:<br>${
+          q.domanda
+        }</div>
+        <div class="options">
+          ${optionsHtml}
+        </div>
+      `;
+        document.querySelectorAll('.option').forEach((btn) => {
+          btn.onclick = function () {
+            if (userAnswers[current].risposta && showAnswersNow) return;
+            userAnswers[current].risposta = btn.getAttribute('data-opt');
+            renderQuestion();
+            updateControls();
+          };
+        });
+      }
+
+      function updateControls() {
+        prevBtn.style.display = current > 0 ? 'inline-block' : 'none';
+        nextBtn.style.display =
+          current < quiz.length - 1 ? 'inline-block' : 'none';
+        submitBtn.style.display =
+          current === quiz.length - 1 && !submitted ? 'inline-block' : 'none';
+        restartBtn.style.display = submitted ? 'inline-block' : 'none';
+        reviewBtn.style.display = submitted ? 'inline-block' : 'none';
+        nextBtn.disabled = userAnswers[current].risposta === null;
+        submitBtn.disabled = userAnswers[current].risposta === null;
+        if (showAnswersToggle) showAnswersToggle.disabled = submitted;
+      }
+
+      prevBtn.onclick = function () {
+        if (current > 0) {
+          current--;
+          renderQuestion();
+          updateControls();
+        }
+      };
+
+      nextBtn.onclick = function () {
+        if (current < quiz.length - 1) {
+          current++;
+          renderQuestion();
+          updateControls();
+        }
+      };
+
+      submitBtn.onclick = function () {
+        submitted = true;
+        showResult();
+        updateControls();
+      };
+
+      restartBtn.onclick = function () {
+        loadQuiz();
+      };
+
+      reviewBtn.onclick = function () {
+        showReview();
+      };
+
+      function showResult() {
+        const correct = quiz.filter(
+          (q, i) => userAnswers[i].risposta === q.risposta_corretta
+        ).length;
+        quizContent.style.display = 'none';
+        quizResult.style.display = '';
+        quizResult.innerHTML = `<div class='score'>Hai totalizzato <b>${correct}</b> su <b>${quiz.length}</b>!</div>`;
+      }
+
+      function showReview() {
+        quizResult.style.display = 'none';
+        quizContent.style.display = '';
+        quizContent.innerHTML = `<div class='review'>
+        ${quiz
+          .map((q, i) => {
+            const user = userAnswers[i].risposta;
+            return `
+            <div class="question">${i + 1}. ${q.domanda}</div>
+            <div class="options">
+              ${q.opzioni
+                .map((opt) => {
+                  let cls = '';
+                  if (opt === q.risposta_corretta) cls = 'correct';
+                  if (user && opt === user && opt !== q.risposta_corretta)
+                    cls = 'incorrect';
+                  if (user && opt === user) cls += ' selected';
+                  return `<span class="option ${cls}">${opt}</span>`;
+                })
+                .join('')}
+            </div>
+            <div style="margin-bottom:12px;font-size:0.95em;">
+              Tua risposta: <b>${user ? user : '<i>Non risposto</i>'}</b><br>
+              Risposta corretta: <b>${q.risposta_corretta}</b>
+            </div>
+          `;
+          })
+          .join('')}
+      </div>`;
+      }
+
+      // Avvio
+      loadQuiz();
+    </script>
+  </body>
+</html>
