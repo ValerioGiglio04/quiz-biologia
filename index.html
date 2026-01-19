@@ -208,997 +208,997 @@
     <script>
       // QUIZ_DATA contiene tutte le domande (incolla qui il tuo array JSON)
       const QUIZ_DATA = [
-        {
-          "domanda": "Qual è l'evento fondamentale che ha dato origine alle cellule vegetali autotrofe?",
-          "opzioni": [
-            "A) L'ingestione di un mitocondrio",
-            "B) L'ingestione di un cianobatterio senza digerirlo",
-            "C) La mutazione spontanea dei vacuoli",
-            "D) La formazione della parete cellulare di lignina"
-          ],
-          "risposta_corretta": "B) L'ingestione di un cianobatterio senza digerirlo"
-        },
-        {
-          "domanda": "Quale enzima ha il compito di degradare l'anidride carbonica in ossigeno e zucchero?",
-          "opzioni": [
-            "A) ATPasi",
-            "B) Elicasi",
-            "C) Rubisco",
-            "D) Amilasi"
-          ],
-          "risposta_corretta": "C) Rubisco"
-        },
-        {
-          "domanda": "Le Briofite sono considerate le prime piante emerse sulla terra. Cosa le caratterizza?",
-          "opzioni": [
-            "A) Presenza di vasi conduttori",
-            "B) Produzione di fiori e frutti",
-            "C) Formazione di un embrione ma assenza di tessuti differenziati",
-            "D) Radici profonde e lignificate"
-          ],
-          "risposta_corretta": "C) Formazione di un embrione ma assenza di tessuti differenziati"
-        },
-        {
-          "domanda": "In quale periodo geologico sono comparse le foglie?",
-          "opzioni": [
-            "A) Cretaceo",
-            "B) Devoniano",
-            "C) Giurassico",
-            "D) Cambriano"
-          ],
-          "risposta_corretta": "B) Devoniano"
-        },
-        {
-          "domanda": "Cosa si intende per 'Isogamia'?",
-          "opzioni": [
-            "A) Gameti morfologicamente diversi",
-            "B) Riproduzione senza fusione di gameti",
-            "C) Unione di gameti morfologicamente uguali",
-            "D) Sviluppo di un individuo da una spora"
-          ],
-          "risposta_corretta": "C) Unione di gameti morfologicamente uguali"
-        },
-        {
-          "domanda": "Quali sono i pigmenti principali presenti nelle alghe verdi e nelle piante terrestri?",
-          "opzioni": [
-            "A) Clorofilla a e c",
-            "B) Clorofilla a e b",
-            "C) Ficoeritrina",
-            "D) Solo carotenoidi"
-          ],
-          "risposta_corretta": "B) Clorofilla a e b"
-        },
-        {
-          "domanda": "Qual è la funzione principale degli amiloplasti?",
-          "opzioni": [
-            "A) Fotosintesi",
-            "B) Trasporto di acqua",
-            "C) Riserva di amido",
-            "D) Sintesi proteica"
-          ],
-          "risposta_corretta": "C) Riserva di amido"
-        },
-        {
-          "domanda": "Quale struttura permette alle piante di combattere la forza di gravità e crescere in altezza?",
-          "opzioni": [
-            "A) Solo l'acqua",
-            "B) Il vacuolo",
-            "C) Cellulosa e lignina",
-            "D) La membrana plasmatica"
-          ],
-          "risposta_corretta": "C) Cellulosa e lignina"
-        },
-        {
-          "domanda": "Cosa definisce una pianta come 'Cormofita'?",
-          "opzioni": [
-            "A) La presenza di fiori",
-            "B) La presenza di radice, fusto e foglia",
-            "C) La capacità di vivere in acqua",
-            "D) La riproduzione tramite spore"
-          ],
-          "risposta_corretta": "B) La presenza di radice, fusto e foglia"
-        },
-        {
-          "domanda": "Le Pteridofite sono definite 'Crittogame Vascolari' perché:",
-          "opzioni": [
-            "A) Hanno semi ma non fiori",
-            "B) Non producono fiori o semi ma hanno sistemi di conduzione",
-            "C) Hanno solo tessuti tegumentali",
-            "D) Vivono solo in ambienti desertici"
-          ],
-          "risposta_corretta": "B) Non producono fiori o semi ma hanno sistemi di conduzione"
-        },
-        {
-          "domanda": "Cosa significa il termine 'Gimnosperme'?",
-          "opzioni": [
-            "A) Piante con fiore",
-            "B) Piante con seme nudo",
-            "C) Piante senza radici",
-            "D) Piante a riproduzione asessuata"
-          ],
-          "risposta_corretta": "B) Piante con seme nudo"
-        },
-        {
-          "domanda": "Qual è il vantaggio evolutivo della 'Sifonogamia'?",
-          "opzioni": [
-            "A) Permette la fotosintesi al buio",
-            "B) Consente il trasferimento del DNA maschile tramite un tubetto senza bisogno di acqua",
-            "C) Aumenta la produzione di ossigeno",
-            "D) Facilita la dispersione dei frutti"
-          ],
-          "risposta_corretta": "B) Consente il trasferimento del DNA maschile tramite un tubetto senza bisogno di acqua"
-        },
-        {
-          "domanda": "Nelle piante a seme, da cosa è protetto il gametofito femminile?",
-          "opzioni": [
-            "A) Dallo strobilo maschile",
-            "B) Dai granuli pollinici",
-            "C) Dallo sporofito femminile (ovulo)",
-            "D) Dalle radici"
-          ],
-          "risposta_corretta": "C) Dallo sporofito femminile (ovulo)"
-        },
-        {
-          "domanda": "Cosa sono le 'Perule'?",
-          "opzioni": [
-            "A) Cellule della radice",
-            "B) Foglie modificate che proteggono le gemme durante l'inverno",
-            "C) Pigmenti dei fiori",
-            "D) Aperture per lo scambio gassoso"
-          ],
-          "risposta_corretta": "B) Foglie modificate che proteggono le gemme durante l'inverno"
-        },
-        {
-          "domanda": "Quale tessuto è responsabile del trasporto della linfa grezza (acqua e sali)?",
-          "opzioni": [
-            "A) Floema",
-            "B) Xilema",
-            "C) Parenchima",
-            "D) Epidermide"
-          ],
-          "risposta_corretta": "B) Xilema"
-        },
-        {
-          "domanda": "Gli stomi sono formati da due cellule particolari chiamate:",
-          "opzioni": [
-            "A) Cellule del sughero",
-            "B) Cellule di guardia",
-            "C) Tracheidi",
-            "D) Sclereidi"
-          ],
-          "risposta_corretta": "B) Cellule di guardia"
-        },
-        {
-          "domanda": "Cosa sono i 'Cromoplasti'?",
-          "opzioni": [
-            "A) Plastidi incolori di riserva",
-            "B) Plastidi contenenti pigmenti gialli, arancio o rossi per fiori e frutti",
-            "C) Organelli per la respirazione cellulare",
-            "D) Tessuti di sostegno meccanico"
-          ],
-          "risposta_corretta": "B) Plastidi contenenti pigmenti gialli, arancio o rossi per fiori e frutti"
-        },
-        {
-          "domanda": "Quale parte della cellula vegetale accumula sostanze di scarto o pigmenti idrosolubili?",
-          "opzioni": [
-            "A) Mitocondrio",
-            "B) Cloroplasto",
-            "C) Vacuolo",
-            "D) Ribosoma"
-          ],
-          "risposta_corretta": "C) Vacuolo"
-        },
-        {
-          "domanda": "Le Angiosperme rappresentano circa quale percentuale delle piante conosciute?",
-          "opzioni": [
-            "A) 10%",
-            "B) 50%",
-            "C) 85%",
-            "D) 99%"
-          ],
-          "risposta_corretta": "C) 85%"
-        },
-        {
-          "domanda": "Cosa si intende per 'Guttazione'?",
-          "opzioni": [
-            "A) La caduta delle foglie in autunno",
-            "B) La fuoriuscita di gocce d'acqua dagli idatodi per regolare la pressione",
-            "C) L'assorbimento di nutrienti dal suolo",
-            "D) La formazione del polline"
-          ],
-          "risposta_corretta": "B) La fuoriuscita di gocce d'acqua dagli idatodi per regolare la pressione"
-        },
-        {
-          "domanda": "Qual è la sede principale della fotosintesi?",
-          "opzioni": [
-            "A) I mitocondri",
-            "B) I cloroplasti",
-            "C) I leucoplasti",
-            "D) Il nucleo"
-          ],
-          "risposta_corretta": "B) I cloroplasti"
-        },
-        {
-          "domanda": "I 'Tessuti Meristematici' sono caratterizzati da:",
-          "opzioni": [
-            "A) Cellule morte a maturità",
-            "B) Cellule in continua divisione",
-            "C) Pareti molto ispessite e lignificate",
-            "D) Grande accumulo di amido"
-          ],
-          "risposta_corretta": "B) Cellule in continua divisione"
-        },
-        {
-          "domanda": "In anatomia vegetale, il 'Cormo' è composto da:",
-          "opzioni": [
-            "A) Solo fusto",
-            "B) Radice, fusto, foglie",
-            "C) Solo fiore e frutto",
-            "D) Tallo e rizoidi"
-          ],
-          "risposta_corretta": "B) Radice, fusto, foglie"
-        },
-        {
-          "domanda": "Quale scienziato osservò che le piante 'detossificano' l'aria?",
-          "opzioni": [
-            "A) Darwin",
-            "B) Priestley",
-            "C) Mendel",
-            "D) Linneo"
-          ],
-          "risposta_corretta": "B) Priestley"
-        },
-        {
-          "domanda": "Il 'Seme' è un vantaggio evolutivo perché garantisce:",
-          "opzioni": [
-            "A) Solo la fotosintesi immediata",
-            "B) La quiescenza e la protezione dell'embrione",
-            "C) La perdita di geni superflui",
-            "D) L'immobilità della pianta"
-          ],
-          "risposta_corretta": "B) La quiescenza e la protezione dell'embrione"
-        },
-        {
-          "domanda": "Cosa trasporta il 'Floema'?",
-          "opzioni": [
-            "A) Solo acqua",
-            "B) Linfa elaborata (zuccheri)",
-            "C) Solo sali minerali",
-            "D) Aria"
-          ],
-          "risposta_corretta": "B) Linfa elaborata (zuccheri)"
-        },
-        {
-          "domanda": "Le 'Trachee' sono elementi conduttori tipici di:",
-          "opzioni": [
-            "A) Muschi",
-            "B) Gimnosperme",
-            "C) Angiosperme",
-            "D) Alghe rosse"
-          ],
-          "risposta_corretta": "C) Angiosperme"
-        },
-        {
-          "domanda": "Qual è la funzione del 'Fellogeno'?",
-          "opzioni": [
-            "A) Produrre zuccheri",
-            "B) Produrre sughero (tessuto tegumentale secondario)",
-            "C) Assorbire acqua",
-            "D) Formare i fiori"
-          ],
-          "risposta_corretta": "B) Produrre sughero (tessuto tegumentale secondario)"
-        },
-        {
-          "domanda": "Nello sviluppo della foglia, quando essa diventa 'sorgente'?",
-          "opzioni": [
-            "A) Appena spunta dalla gemma",
-            "B) Quando raggiunge circa il 25% della dimensione finale e inizia a esportare zuccheri",
-            "C) Solo dopo la fioritura",
-            "D) Quando cade a terra"
-          ],
-          "risposta_corretta": "B) Quando raggiunge circa il 25% della dimensione finale e inizia a esportare zuccheri"
-        },
-        {
-          "domanda": "I 'Tessuti di Sostegno' comprendono:",
-          "opzioni": [
-            "A) Epidermide ed endoderma",
-            "B) Collenchima e sclerenchima",
-            "C) Xilema e floema",
-            "D) Parenchima aerifero"
-          ],
-          "risposta_corretta": "B) Collenchima e sclerenchima"
-        },
-        {
-          "domanda": "Quale di queste piante è una Gimnosperma?",
-          "opzioni": [
-            "A) Rosa",
-            "B) Quercia",
-            "C) Pino",
-            "D) Tulipano"
-          ],
-          "risposta_corretta": "C) Pino"
-        },
-        {
-          "domanda": "Il 'Rapporto di Superficie/Volume' nelle foglie delle Gimnosperme è solitamente:",
-          "opzioni": [
-            "A) Molto alto per massimizzare la fotosintesi",
-            "B) Ridotto (aghi) per limitare l'evapotraspirazione",
-            "C) Inesistente",
-            "D) Variabile ogni ora"
-          ],
-          "risposta_corretta": "B) Ridotto (aghi) per limitare l'evapotraspirazione"
-        },
-        {
-          "domanda": "Cosa sono le 'Lenticelle'?",
-          "opzioni": [
-            "A) Piccole radici",
-            "B) Aperture nel sughero per lo scambio gassoso",
-            "C) Parte del fiore",
-            "D) Organelli di riserva"
-          ],
-          "risposta_corretta": "B) Aperture nel sughero per lo scambio gassoso"
-        },
-        {
-          "domanda": "Nelle Angiosperme, l'impollinazione può essere:",
-          "opzioni": [
-            "A) Solo tramite acqua",
-            "B) Anemofila (vento) o Zoofila (animali)",
-            "C) Solo tramite contatto diretto",
-            "D) Non esiste impollinazione"
-          ],
-          "risposta_corretta": "B) Anemofila (vento) o Zoofila (animali)"
-        },
-        {
-          "domanda": "Il 'Tegumento' del seme ha la funzione di:",
-          "opzioni": [
-            "A) Fare la fotosintesi",
-            "B) Protezione meccanica e contro la disidratazione",
-            "C) Produrre polline",
-            "D) Assorbire sali minerali"
-          ],
-          "risposta_corretta": "B) Protezione meccanica e contro la disidratazione"
-        },
-        {
-          "domanda": "Qual è il principale carboidrato di riserva delle piante?",
-          "opzioni": [
-            "A) Glucosio",
-            "B) Amido",
-            "C) Cellulosa",
-            "D) Saccarosio"
-          ],
-          "risposta_corretta": "B) Amido"
-        },
-        {
-          "domanda": "Il 'Mesofillo' è un tessuto tipico di quale organo?",
-          "opzioni": [
-            "A) Radice",
-            "B) Fusto",
-            "C) Foglia",
-            "D) Seme"
-          ],
-          "risposta_corretta": "C) Foglia"
-        },
-        {
-          "domanda": "I 'Peli Urticanti' dell'ortica appartengono ai:",
-          "opzioni": [
-            "A) Tessuti meccanici",
-            "B) Tessuti secretori esterni",
-            "C) Tessuti conduttori",
-            "D) Tessuti meristematici"
-          ],
-          "risposta_corretta": "B) Tessuti secretori esterni"
-        },
-        {
-          "domanda": "La 'Zona di Struttura Primaria' del fusto deriva da:",
-          "opzioni": [
-            "A) Cambio cribro-vascolare",
-            "B) Meristemi apicali",
-            "C) Fellogeno",
-            "D) Radici laterali"
-          ],
-          "risposta_corretta": "B) Meristemi apicali"
-        },
-        {
-          "domanda": "Quale pigmento è responsabile del colore verde delle piante?",
-          "opzioni": [
-            "A) Antocianina",
-            "B) Carotene",
-            "C) Clorofilla",
-            "D) Xantofilla"
-          ],
-          "risposta_corretta": "C) Clorofilla"
-        },
-        {
-          "domanda": "Il 'Polline' rappresenta:",
-          "opzioni": [
-            "A) Il gamete femminile",
-            "B) Il gametofito maschile",
-            "C) Lo zigote",
-            "D) Il frutto"
-          ],
-          "risposta_corretta": "B) Il gametofito maschile"
-        },
-        {
-          "domanda": "Cosa si forma dopo la fecondazione dell'ovulo?",
-          "opzioni": [
-            "A) La radice",
-            "B) Lo zigote (che diventerà embrione)",
-            "C) Un nuovo stoma",
-            "D) Solo ossigeno"
-          ],
-          "risposta_corretta": "B) Lo zigote (che diventerà embrione)"
-        },
-        {
-          "domanda": "Le piante 'Dioiche' hanno:",
-          "opzioni": [
-            "A) Fiori maschili e femminili sulla stessa pianta",
-            "B) Organi sessuali su piante diverse (maschio e femmina separati)",
-            "C) Solo riproduzione asessuata",
-            "D) Fiori che non si aprono mai"
-          ],
-          "risposta_corretta": "B) Organi sessuali su piante diverse (maschio e femmina separati)"
-        },
-        {
-          "domanda": "Qual è il ruolo dei 'Canali Resiniferi' nei pini?",
-          "opzioni": [
-            "A) Trasporto di zuccheri",
-            "B) Protezione e cicatrizzazione tramite resina",
-            "C) Assorbimento di $CO_2$",
-            "D) Riserva di acqua"
-          ],
-          "risposta_corretta": "B) Protezione e cicatrizzazione tramite resina"
-        },
-        {
-          "domanda": "L'epidermide fogliare è spesso ricoperta da una sostanza impermeabile chiamata:",
-          "opzioni": [
-            "A) Chitina",
-            "B) Cuticola (cutina)",
-            "C) Suberina",
-            "D) Miosina"
-          ],
-          "risposta_corretta": "B) Cuticola (cutina)"
-        },
-        {
-          "domanda": "Cosa si intende per 'Accrescimento Secondario'?",
-          "opzioni": [
-            "A) Allungamento del fusto",
-            "B) Aumento dello spessore/diametro di fusto e radice",
-            "C) Produzione di nuove foglie",
-            "D) Germinazione del seme"
-          ],
-          "risposta_corretta": "B) Aumento dello spessore/diametro di fusto e radice"
-        },
-        {
-          "domanda": "Il 'Legno' (nella terminologia comune) corrisponde scientificamente a:",
-          "opzioni": [
-            "A) Floema secondario",
-            "B) Xilema secondario",
-            "C) Corteccia",
-            "D) Epidermide"
-          ],
-          "risposta_corretta": "B) Xilema secondario"
-        },
-        {
-          "domanda": "Quale di questi è un 'Tessuto Tegumentale Esterno Secondario'?",
-          "opzioni": [
-            "A) Epidermide",
-            "B) Sughero",
-            "C) Endoderma",
-            "D) Esoderma"
-          ],
-          "risposta_corretta": "B) Sughero"
-        },
-        {
-          "domanda": "Cosa sono i 'Tilacoidi'?",
-          "opzioni": [
-            "A) Parti della radice",
-            "B) Sacchetti membranosi nei cloroplasti dove avviene la fase luminosa della fotosintesi",
-            "C) Cellule morte del legno",
-            "D) Pigmenti rossi"
-          ],
-          "risposta_corretta": "B) Sacchetti membranosi nei cloroplasti dove avviene la fase luminosa della fotosintesi"
-        },
-        {
-          "domanda": "La 'Meiosi' nelle piante serve a produrre:",
-          "opzioni": [
-            "A) Gameti diretti (nella maggior parte)",
-            "B) Meiospore (n)",
-            "C) Cellule somatiche",
-            "D) Cloni identici"
-          ],
-          "risposta_corretta": "B) Meiospore (n)"
-        },
-        {
-          "domanda": "Il 'Cianobatterio' è considerato il precursore di quale organello?",
-          "opzioni": [
-            "A) Mitocondrio",
-            "B) Cloroplasto",
-            "C) Nucleo",
-            "D) Golgi"
-          ],
-          "risposta_corretta": "B) Cloroplasto"
-        },
-        {
-          "domanda": "Cosa si intende per 'Eterosporia'?",
-          "opzioni": [
-            "A) Produzione di un solo tipo di spora",
-            "B) Produzione di due tipi di spore: microspore e megaspore",
-            "C) Assenza di spore",
-            "D) Spore che volano nell'acqua"
-          ],
-          "risposta_corretta": "B) Produzione di due tipi di spore: microspore e megaspore"
-        },
-        {
-          "domanda": "Qual è la funzione del 'Nettare'?",
-          "opzioni": [
-            "A) Nutrire l'embrione",
-            "B) Attirare gli impollinatori (insetti, uccelli)",
-            "C) Proteggere dal freddo",
-            "D) Sostenere il fusto"
-          ],
-          "risposta_corretta": "B) Attirare gli impollinatori (insetti, uccelli)"
-        },
-        {
-          "domanda": "Il 'Tessuto Parenchimatico' con ampi spazi intercellulari per la circolazione dell'aria è detto:",
-          "opzioni": [
-            "A) Clorenchima",
-            "B) Parenchima aerifero",
-            "C) Parenchima acquifero",
-            "D) Parenchima di riserva"
-          ],
-          "risposta_corretta": "B) Parenchima aerifero"
-        },
-        {
-          "domanda": "Quale parte della pianta ha geotropismo positivo (cresce verso il basso)?",
-          "opzioni": [
-            "A) Fusto",
-            "B) Foglia",
-            "C) Radice",
-            "D) Fiore"
-          ],
-          "risposta_corretta": "C) Radice"
-        },
-        {
-          "domanda": "Cosa sono le 'Tracheidi'?",
-          "opzioni": [
-            "A) Vasi aperti alle estremità",
-            "B) Elementi conduttori meno evoluti con pareti trasversali integre o perforate",
-            "C) Cellule del floema",
-            "D) Cellule della pelle"
-          ],
-          "risposta_corretta": "B) Elementi conduttori meno evoluti con pareti trasversali integre o perforate"
-        },
-        {
-          "domanda": "La 'Lignina' conferisce ai tessuti:",
-          "opzioni": [
-            "A) Elasticità e morbidezza",
-            "B) Rigidità e resistenza alla compressione",
-            "C) Colore verde",
-            "D) Capacità di assorbire luce blu"
-          ],
-          "risposta_corretta": "B) Rigidità e resistenza alla compressione"
-        },
-        {
-          "domanda": "In quale organello avviene la sintesi dell'amido primario?",
-          "opzioni": [
-            "A) Vacuolo",
-            "B) Cloroplasto",
-            "C) Perossisoma",
-            "D) Lisosoma"
-          ],
-          "risposta_corretta": "B) Cloroplasto"
-        },
-        {
-          "domanda": "Qual è il ruolo del 'Cambio Cribro-Vascolare'?",
-          "opzioni": [
-            "A) Produrre solo corteccia",
-            "B) Produrre xilema verso l'interno e floema verso l'esterno",
-            "C) Produrre foglie",
-            "D) Fissare l'azoto"
-          ],
-          "risposta_corretta": "B) Produrre xilema verso l'interno e floema verso l'esterno"
-        },
-        {
-          "domanda": "Cos'è il 'Micropilo'?",
-          "opzioni": [
-            "A) Una piccola radice",
-            "B) Un'apertura nei tegumenti dell'ovulo che permette l'ingresso del tubetto pollinico",
-            "C) Un tipo di foglia",
-            "D) Un pigmento"
-          ],
-          "risposta_corretta": "B) Un'apertura nei tegumenti dell'ovulo che permette l'ingresso del tubetto pollinico"
-        },
-        {
-          "domanda": "Nelle Briofite, la generazione dominante è:",
-          "opzioni": [
-            "A) Lo sporofito",
-            "B) Il gametofito",
-            "C) Il seme",
-            "D) Il fiore"
-          ],
-          "risposta_corretta": "B) Il gametofito"
-        },
-        {
-          "domanda": "Le 'Idioblasti' sono:",
-          "opzioni": [
-            "A) Cellule identiche a tutte le altre",
-            "B) Cellule singole che differiscono marcatamente dal tessuto circostante per forma o contenuto",
-            "C) Gruppi di stomi",
-            "D) Radici aree"
-          ],
-          "risposta_corretta": "B) Cellule singole che differiscono marcatamente dal tessuto circostante per forma o contenuto"
-        },
-        {
-          "domanda": "Quale di queste funzioni NON è tipica delle radici?",
-          "opzioni": [
-            "A) Ancoraggio",
-            "B) Assorbimento di acqua",
-            "C) Fotosintesi clorofilliana (nella maggior parte)",
-            "D) Riserva di nutrienti"
-          ],
-          "risposta_corretta": "C) Fotosintesi clorofilliana (nella maggior parte)"
-        },
-        {
-          "domanda": "Cosa si intende per 'Sifonogamia'?",
-          "opzioni": [
-            "A) Fecondazione tramite acqua",
-            "B) Fecondazione tramite tubetto pollinico",
-            "C) Fecondazione tramite vento",
-            "D) Riproduzione per talea"
-          ],
-          "risposta_corretta": "B) Fecondazione tramite tubetto pollinico"
-        },
-        {
-          "domanda": "Il 'Latice' si trova in appositi canali chiamati:",
-          "opzioni": [
-            "A) Trachee",
-            "B) Laticiferi",
-            "C) Tubi cribrosi",
-            "D) Stomi"
-          ],
-          "risposta_corretta": "B) Laticiferi"
-        },
-        {
-          "domanda": "La 'Quiescenza' dei semi è interrotta da:",
-          "opzioni": [
-            "A) Solo luce",
-            "B) Condizioni ambientali favorevoli (acqua, temperatura, ossigeno)",
-            "C) Solo buio",
-            "D) Presenza di resina"
-          ],
-          "risposta_corretta": "B) Condizioni ambientali favorevoli (acqua, temperatura, ossigeno)"
-        },
-        {
-          "domanda": "Quale tessuto riveste le parti giovani della pianta?",
-          "opzioni": [
-            "A) Sughero",
-            "B) Epidermide",
-            "C) Xilema",
-            "D) Midollo"
-          ],
-          "risposta_corretta": "B) Epidermide"
-        },
-        {
-          "domanda": "Cosa contiene il 'Sacco Embrionale' nelle Angiosperme?",
-          "opzioni": [
-            "A) Il polline",
-            "B) Il gametofito femminile",
-            "C) Solo amido",
-            "D) La linfa grezza"
-          ],
-          "risposta_corretta": "B) Il gametofito femminile"
-        },
-        {
-          "domanda": "L'uscita dall'acqua delle piante ha richiesto l'evoluzione di:",
-          "opzioni": [
-            "A) Meno clorofilla",
-            "B) Sistemi di sostegno e protezione contro l'essiccamento",
-            "C) Una vita più breve",
-            "D) Più flagelli"
-          ],
-          "risposta_corretta": "B) Sistemi di sostegno e protezione contro l'essiccamento"
-        },
-        {
-          "domanda": "Cos'è lo 'Stroma'?",
-          "opzioni": [
-            "A) Un tipo di radice",
-            "B) La sostanza fluida all'interno del cloroplasto che circonda i tilacoidi",
-            "C) Il foro dello stoma",
-            "D) Una cellula morta"
-          ],
-          "risposta_corretta": "B) La sostanza fluida all'interno del cloroplasto che circonda i tilacoidi"
-        },
-        {
-          "domanda": "I 'Meristemi Apicali' si trovano:",
-          "opzioni": [
-            "A) Solo al centro del fusto",
-            "B) Alle estremità di radici e germogli",
-            "C) Nelle foglie adulte",
-            "D) Nel polline"
-          ],
-          "risposta_corretta": "B) Alle estremità di radici e germogli"
-        },
-        {
-          "domanda": "La 'Parete Cellulare' vegetale è composta principalmente da:",
-          "opzioni": [
-            "A) Proteine",
-            "B) Cellulosa",
-            "C) Glicogeno",
-            "D) Colesterolo"
-          ],
-          "risposta_corretta": "B) Cellulosa"
-        },
-        {
-          "domanda": "Cosa si intende per 'Zoocoria'?",
-          "opzioni": [
-            "A) Impollinazione tramite insetti",
-            "B) Dispersione dei semi tramite animali",
-            "C) Vita delle piante negli zoo",
-            "D) Respirazione animale"
-          ],
-          "risposta_corretta": "B) Dispersione dei semi tramite animali"
-        },
-        {
-          "domanda": "Le 'Pteridofite' (come le felci) si riproducono tramite:",
-          "opzioni": [
-            "A) Semi",
-            "B) Spore",
-            "C) Frutti",
-            "D) Fiori"
-          ],
-          "risposta_corretta": "B) Spore"
-        },
-        {
-          "domanda": "La 'Traspirazione' avviene principalmente attraverso:",
-          "opzioni": [
-            "A) Le radici",
-            "B) Gli stomi delle foglie",
-            "C) I vasi del legno",
-            "D) I peli urticanti"
-          ],
-          "risposta_corretta": "B) Gli stomi delle foglie"
-        },
-        {
-          "domanda": "Qual è la funzione del 'Collenchima'?",
-          "opzioni": [
-            "A) Trasporto",
-            "B) Sostegno in organi giovani in accrescimento",
-            "C) Fotosintesi",
-            "D) Secrezione di resina"
-          ],
-          "risposta_corretta": "B) Sostegno in organi giovani in accrescimento"
-        },
-        {
-          "domanda": "Il 'Plasmadesma' è:",
-          "opzioni": [
-            "A) Un organello",
-            "B) Un ponte citoplasmatico tra cellule vicine che attraversa la parete",
-            "C) Un tipo di pigmento",
-            "D) Una cellula del sangue vegetale"
-          ],
-          "risposta_corretta": "B) Un ponte citoplasmatico tra cellule vicine che attraversa la parete"
-        },
-        {
-          "domanda": "Cosa sono i 'Leucoplasti'?",
-          "opzioni": [
-            "A) Plastidi verdi",
-            "B) Plastidi incolori deputati alla riserva",
-            "C) Cellule della corteccia",
-            "D) Funghi simbionti"
-          ],
-          "risposta_corretta": "B) Plastidi incolori deputati alla riserva"
-        },
-        {
-          "domanda": "Le 'Gimnosperme' hanno vasi conduttori composti quasi esclusivamente da:",
-          "opzioni": [
-            "A) Trachee",
-            "B) Tracheidi",
-            "C) Tubi cribrosi",
-            "D) Fibre"
-          ],
-          "risposta_corretta": "B) Tracheidi"
-        },
-        {
-          "domanda": "Cosa si intende per 'Fillotassi'?",
-          "opzioni": [
-            "A) Lo studio delle radici",
-            "B) La disposizione delle foglie sul fusto",
-            "C) La caduta delle foglie",
-            "D) La forma della foglia"
-          ],
-          "risposta_corretta": "B) La disposizione delle foglie sul fusto"
-        },
-        {
-          "domanda": "Il 'Cambio Subero-Fellodermico' è detto anche:",
-          "opzioni": [
-            "A) Cambio vascolare",
-            "B) Fellogeno",
-            "C) Protoderma",
-            "D) Procambio"
-          ],
-          "risposta_corretta": "B) Fellogeno"
-        },
-        {
-          "domanda": "Qual è il prodotto finale della fotosintesi?",
-          "opzioni": [
-            "A) Solo acqua",
-            "B) Glucosio e Ossigeno",
-            "C) $CO_2$ e Azoto",
-            "D) Lignina"
-          ],
-          "risposta_corretta": "B) Glucosio e Ossigeno"
-        },
-        {
-          "domanda": "Le 'Piante Alophyte' sono adattate a:",
-          "opzioni": [
-            "A) Ambienti desertici",
-            "B) Ambienti ad alta salinità",
-            "C) Ambienti gelidi",
-            "D) Alte vette"
-          ],
-          "risposta_corretta": "B) Ambienti ad alta salinità"
-        },
-        {
-          "domanda": "Cosa sono i 'Tricomi'?",
-          "opzioni": [
-            "A) Radici",
-            "B) Peli epidermici con varie funzioni (difesa, secrezione, assorbimento)",
-            "C) Pigmenti neri",
-            "D) Parti del nucleo"
-          ],
-          "risposta_corretta": "B) Peli epidermici con varie funzioni (difesa, secrezione, assorbimento)"
-        },
-        {
-          "domanda": "L' 'Endosperma' nel seme ha funzione:",
-          "opzioni": [
-            "A) Protettiva",
-            "B) Nutritiva per l'embrione",
-            "C) Di ancoraggio",
-            "D) Fotosintetica"
-          ],
-          "risposta_corretta": "B) Nutritiva per l'embrione"
-        },
-        {
-          "domanda": "Quale di questi NON è un tessuto definitivo?",
-          "opzioni": [
-            "A) Parenchima",
-            "B) Meristema apicale",
-            "C) Sclerenchima",
-            "D) Xilema"
-          ],
-          "risposta_corretta": "B) Meristema apicale"
-        },
-        {
-          "domanda": "Nelle Angiosperme, il 'Carpello' (o pistillo) è:",
-          "opzioni": [
-            "A) L'organo riproduttivo maschile",
-            "B) L'organo riproduttivo femminile",
-            "C) Un tipo di foglia fotosintetica",
-            "D) Una radice modificata"
-          ],
-          "risposta_corretta": "B) L'organo riproduttivo femminile"
-        },
-        {
-          "domanda": "Cosa sono le 'Cellule Spermatiche' nel polline?",
-          "opzioni": [
-            "A) I gameti maschili",
-            "B) Cellule di riserva",
-            "C) Parte della parete",
-            "D) Cellule dello stoma"
-          ],
-          "risposta_corretta": "A) I gameti maschili"
-        },
-        {
-          "domanda": "Il 'Midollo' del fusto è costituito principalmente da:",
-          "opzioni": [
-            "A) Tessuto vascolare",
-            "B) Tessuto parenchimatico",
-            "C) Tessuto meccanico",
-            "D) Sughero"
-          ],
-          "risposta_corretta": "B) Tessuto parenchimatico"
-        },
-        {
-          "domanda": "Qual è la differenza principale tra trachee e tracheidi?",
-          "opzioni": [
-            "A) Le trachee sono più strette",
-            "B) Le trachee hanno pareti trasversali ampiamente perforate o assenti, facilitando il flusso",
-            "C) Le tracheidi sono vive a maturità",
-            "D) Non c'è differenza"
-          ],
-          "risposta_corretta": "B) Le trachee hanno pareti trasversali ampiamente perforate o assenti, facilitando il flusso"
-        },
-        {
-          "domanda": "Il 'Fiore' è considerato:",
-          "opzioni": [
-            "A) Un fusto modificato con foglie specializzate per la riproduzione",
-            "B) Una radice che cresce verso l'alto",
-            "C) Un accumulo di scarti",
-            "D) Un parassita della pianta"
-          ],
-          "risposta_corretta": "A) Un fusto modificato con foglie specializzate per la riproduzione"
-        },
-        {
-          "domanda": "Cosa si intende per 'Oogamia'?",
-          "opzioni": [
-            "A) Gameti uguali e mobili",
-            "B) Gamete femminile grande e immobile, gamete maschile piccolo e mobile",
-            "C) Riproduzione solo per frammentazione",
-            "D) Fusione di due radici"
-          ],
-          "risposta_corretta": "B) Gamete femminile grande e immobile, gamete maschile piccolo e mobile"
-        },
-        {
-          "domanda": "Quale organello è sede della respirazione cellulare?",
-          "opzioni": [
-            "A) Cloroplasto",
-            "B) Mitocondrio",
-            "C) Vacuolo",
-            "D) Nucleo"
-          ],
-          "risposta_corretta": "B) Mitocondrio"
-        },
-        {
-          "domanda": "I 'Tessuti Secretori' possono essere:",
-          "opzioni": [
-            "A) Solo esterni",
-            "B) Sia interni che esterni",
-            "C) Solo nelle radici",
-            "D) Solo nei fiori"
-          ],
-          "risposta_corretta": "B) Sia interni che esterni"
-        },
-        {
-          "domanda": "Qual è il vantaggio della 'Ricombinazione Sessuale'?",
-          "opzioni": [
-            "A) Creare cloni identici",
-            "B) Aumentare la variabilità genetica e l'adattamento",
-            "C) Consumare meno energia",
-            "D) Produrre più amido"
-          ],
-          "risposta_corretta": "B) Aumentare la variabilità genetica e l'adattamento"
-        },
-        {
-          "domanda": "Nelle Angiosperme, il 'Frutto' deriva dalla trasformazione di:",
-          "opzioni": [
-            "A) Seme",
-            "B) Ovario",
-            "C) Foglia",
-            "D) Radice"
-          ],
-          "risposta_corretta": "B) Ovario"
-        },
-        {
-          "domanda": "Cosa si intende per 'Piante Monoiche'?",
-          "opzioni": [
-            "A) Piante con un solo fiore",
-            "B) Piante che portano fiori maschili e femminili distinti sullo stesso individuo",
-            "C) Piante che vivono un solo anno",
-            "D) Piante senza vasi"
-          ],
-          "risposta_corretta": "B) Piante che portano fiori maschili e femminili distinti sullo stesso individuo"
-        },
-        {
-          "domanda": "Il 'Parenchima di Riserva' si trova spesso in:",
-          "opzioni": [
-            "A) Foglie fotosintetiche",
-            "B) Tuberi, bulbi e semi",
-            "C) Solo nei petali",
-            "D) Solo nel polline"
-          ],
-          "risposta_corretta": "B) Tuberi, bulbi e semi"
-        },
-        {
-          "domanda": "Quale di queste affermazioni sulla 'Rubisco' è corretta?",
-          "opzioni": [
-            "A) È la proteina più abbondante sulla Terra",
-            "B) Serve a produrre ATP",
-            "C) Si trova solo nelle radici",
-            "D) È un pigmento rosso"
-          ],
-          "risposta_corretta": "A) È la proteina più abbondante sulla Terra"
-        }
-      ]
+  {
+    "domanda": "Qual è il ruolo delle 'Emicellulose' nella matrice della parete cellulare?",
+    "opzioni": [
+      "A) Formare microfibrille rigide e cristalline",
+      "B) Legare le microfibrille di cellulosa tramite legami a idrogeno, stabilizzando la struttura",
+      "C) Idrolizzare l'ATP per consentire l'espansione cellulare",
+      "D) Sintetizzare i lipidi di membrana"
+    ],
+    "risposta_corretta": "B) Legare le microfibrille di cellulosa tramite legami a idrogeno, stabilizzando la struttura"
+  },
+  {
+    "domanda": "Nel ciclo di Calvin, qual è il destino immediato della molecola di 3-fosfoglicerato (3-PGA)?",
+    "opzioni": [
+      "A) Viene convertita in RuBP tramite l'enzima Rubisco",
+      "B) Viene ridotta a gliceraldeide-3-fosfato (G3P) utilizzando ATP e NADPH",
+      "C) Viene espulsa dal cloroplasto come scarto gassoso",
+      "D) Viene polimerizzata direttamente in amido primario"
+    ],
+    "risposta_corretta": "B) Viene ridotta a gliceraldeide-3-fosfato (G3P) utilizzando ATP e NADPH"
+  },
+  {
+    "domanda": "Quale caratteristica distingue biochimicamente i 'Plastidi' dagli altri organelli cellulari?",
+    "opzioni": [
+      "A) La presenza di una singola membrana lipoproteica",
+      "B) Il possesso di un genoma circolare proprio e ribosomi di tipo 70S",
+      "C) La capacità di sintetizzare esclusivamente proteine citosoliche",
+      "D) L'assenza di membrane interne"
+    ],
+    "risposta_corretta": "B) Il possesso di un genoma circolare proprio e ribosomi di tipo 70S"
+  },
+  {
+    "domanda": "Il fenomeno della 'Plasmolisi' avviene quando una cellula vegetale è immersa in:",
+    "opzioni": [
+      "A) Una soluzione ipotonica, causando lo scoppio del protoplasto",
+      "B) Una soluzione ipertonica, causando il distacco della membrana dalla parete",
+      "C) Acqua distillata, aumentando la pressione di turgore",
+      "D) Una soluzione isotonica che blocca il flusso di nutrienti"
+    ],
+    "risposta_corretta": "B) Una soluzione ipertonica, causando il distacco della membrana dalla parete"
+  },
+  {
+    "domanda": "Cosa caratterizza le 'Punteggiature Areolate' tipiche delle tracheidi delle conifere?",
+    "opzioni": [
+      "A) Sono fori aperti che permettono il passaggio di gas",
+      "B) Presentano un rigonfiamento della parete (toro) che può fungere da valvola",
+      "C) Sono zone dove la parete primaria è stata completamente digerita",
+      "D) Servono esclusivamente per l'ancoraggio delle fibre meccaniche"
+    ],
+    "risposta_corretta": "B) Presentano un rigonfiamento della parete (toro) che può fungere da valvola"
+  },
+  {
+    "domanda": "Nella radice, l'origine delle 'Radici Laterali' avviene a livello del:",
+    "opzioni": [
+      "A) Epidermide",
+      "B) Periciclo",
+      "C) Endoderma",
+      "D) Mesofillo"
+    ],
+    "risposta_corretta": "B) Periciclo"
+  },
+  {
+    "domanda": "Qual è la funzione delle 'Cellule Compagne' nel floema delle Angiosperme?",
+    "opzioni": [
+      "A) Fornire supporto meccanico tramite pareti lignificate",
+      "B) Gestire il metabolismo e il caricamento dei soluti nei tubi cribrosi",
+      "C) Trasportare acqua per traspirazione",
+      "D) Differenziarsi in vasi del legno durante lo stress idrico"
+    ],
+    "risposta_corretta": "B) Gestire il metabolismo e il caricamento dei soluti nei tubi cribrosi"
+  },
+  {
+    "domanda": "Cosa si intende per 'Accrescimento Apposizionale' della parete cellulare?",
+    "opzioni": [
+      "A) L'espansione della parete per stiramento",
+      "B) La deposizione di nuovi strati di cellulosa sopra quelli preesistenti",
+      "C) La degradazione della lamella mediana",
+      "D) Lo spostamento dei cloroplasti verso la luce"
+    ],
+    "risposta_corretta": "B) La deposizione di nuovi strati di cellulosa sopra quelli preesistenti"
+  },
+  {
+    "domanda": "In un fusto con struttura secondaria, cos'è il 'Durame'?",
+    "opzioni": [
+      "A) La parte esterna del legno ancora funzionale al trasporto",
+      "B) La parte centrale del legno, non più funzionale, spesso ricca di tannini e resine",
+      "C) Il tessuto prodotto dal fellogeno verso l'esterno",
+      "D) Lo strato di cellule vive del midollo"
+    ],
+    "risposta_corretta": "B) La parte centrale del legno, non più funzionale, spesso ricca di tannini e resine"
+  },
+  {
+    "domanda": "Le 'Sclereidi' (cellule petrose) sono un tipo di sclerenchima che si trova tipicamente:",
+    "opzioni": [
+      "A) Nelle zone di allungamento del fusto",
+      "B) Nella polpa granulosa dei frutti (es. pera) e nei tegumenti dei semi",
+      "C) Nel floema primario come elementi conduttori",
+      "D) Sulla superficie delle radici assorbenti"
+    ],
+    "risposta_corretta": "B) Nella polpa granulosa dei frutti (es. pera) e nei tegumenti dei semi"
+  },
+  {
+    "domanda": "Quale di queste modificazioni della parete cellulare è definita 'Suberificazione'?",
+    "opzioni": [
+      "A) Impregnazione con lignina per la rigidità",
+      "B) Deposizione di strati di suberina e cere per l'impermeabilizzazione",
+      "C) Accumulo di carbonato di calcio",
+      "D) Trasformazione della cellulosa in amido"
+    ],
+    "risposta_corretta": "B) Deposizione di strati di suberina e cere per l'impermeabilizzazione"
+  },
+  {
+    "domanda": "Nella 'Fase Luminosa' della fotosintesi, l'ossigeno viene prodotto attraverso:",
+    "opzioni": [
+      "A) La riduzione della $CO_2$",
+      "B) La fotolisi dell'acqua a livello del Fotosistema II",
+      "C) La degradazione del glucosio nei perossisomi",
+      "D) Il ciclo dei pentoso fosfati"
+    ],
+    "risposta_corretta": "B) La fotolisi dell'acqua a livello del Fotosistema II"
+  },
+  {
+    "domanda": "Cos'è la 'Lamella Mediana'?",
+    "opzioni": [
+      "A) Lo strato più interno della parete secondaria",
+      "B) Lo strato più esterno, ricco di pectine, che tiene unite cellule adiacenti",
+      "C) Una membrana che separa il citoplasma dal vacuolo",
+      "D) Una struttura proteica del nucleo"
+    ],
+    "risposta_corretta": "B) Lo strato più esterno, ricco di pectine, che tiene unite cellule adiacenti"
+  },
+  {
+    "domanda": "Nelle Briofite (Muschi), perché lo sporofito è considerato parassita del gametofito?",
+    "opzioni": [
+      "A) Perché lo sporofito uccide il gametofito dopo la produzione di spore",
+      "B) Perché lo sporofito è nutrizionalmente dipendente dal gametofito fotosintetico",
+      "C) Perché il gametofito produce tossine contro lo sporofito",
+      "D) Perché non esiste fase di sporofito nelle Briofite"
+    ],
+    "risposta_corretta": "B) Perché lo sporofito è nutrizionalmente dipendente dal gametofito fotosintetico"
+  },
+  {
+    "domanda": "Qual è la differenza tra 'Sifonogamia' e 'Zoidiogamia'?",
+    "opzioni": [
+      "A) La sifonogamia usa l'acqua, la zoidiogamia il vento",
+      "B) La sifonogamia prevede il tubetto pollinico; la zoidiogamia prevede gameti maschili flagellati mobili",
+      "C) Non c'è differenza, sono termini obsoleti",
+      "D) La zoidiogamia avviene solo nelle Angiosperme"
+    ],
+    "risposta_corretta": "B) La sifonogamia prevede il tubetto pollinico; la zoidiogamia prevede gameti maschili flagellati mobili"
+  },
+  {
+    "domanda": "Cosa definisce il 'Cilindro Centrale' (Stele) in una radice in struttura primaria?",
+    "opzioni": [
+      "A) La zona esterna dell'epidermide",
+      "B) L'insieme dei tessuti vascolari (xilema e floema) delimitati dal periciclo",
+      "C) Il parenchima corticale esterno",
+      "D) La cuffia radicale"
+    ],
+    "risposta_corretta": "B) L'insieme dei tessuti vascolari (xilema e floema) delimitati dal periciclo"
+  },
+  {
+    "domanda": "L'enzima 'Anidrasi Carbonica' nel cloroplasto serve a:",
+    "opzioni": [
+      "A) Produrre ATP dai fotoni",
+      "B) Convertire rapidamente bicarbonato in $CO_2$ per rifornire la Rubisco",
+      "C) Degradare la clorofilla a fine stagione",
+      "D) Sintetizzare amminoacidi ramificati"
+    ],
+    "risposta_corretta": "B) Convertire rapidamente bicarbonato in $CO_2$ per rifornire la Rubisco"
+  },
+  {
+    "domanda": "Quale struttura permette alle foglie di Graminaceae (come il Mais) di arrotolarsi per ridurre la traspirazione?",
+    "opzioni": [
+      "A) Stomi idatodi",
+      "B) Cellule bulbiformi (o motorie) dell'epidermide",
+      "C) Canali resiniferi",
+      "D) Trachee del protoxilema"
+    ],
+    "risposta_corretta": "B) Cellule bulbiformi (o motorie) dell'epidermide"
+  },
+  {
+    "domanda": "Cos'è il 'Protoplasto'?",
+    "opzioni": [
+      "A) La parete cellulare senza citoplasma",
+      "B) La parte viva della cellula vegetale, privata della parete cellulare",
+      "C) Un precursore del cloroplasto",
+      "D) Il nucleo della cellula vegetale"
+    ],
+    "risposta_corretta": "B) La parte viva della cellula vegetale, privata della parete cellulare"
+  },
+  {
+    "domanda": "Nel processo di 'Doppia Fecondazione' delle Angiosperme, cosa si origina dall'unione del secondo nucleo spermatico con i due nuclei polari?",
+    "opzioni": [
+      "A) Lo zigote (2n)",
+      "B) L'endosperma secondario triploide (3n)",
+      "C) Il tegumento del seme",
+      "D) Il frutto"
+    ],
+    "risposta_corretta": "B) L'endosperma secondario triploide (3n)"
+  },
+  {
+    "domanda": "Qual è la funzione del 'Tappeto' all'interno delle antere?",
+    "opzioni": [
+      "A) Proteggere l'antera dagli insetti",
+      "B) Fornire nutrimento ai granuli di polline in via di sviluppo e produrre sporopollenina",
+      "C) Facilitare l'apertura dei fiori",
+      "D) Trasportare acqua allo stigma"
+    ],
+    "risposta_corretta": "B) Fornire nutrimento ai granuli di polline in via di sviluppo e produrre sporopollenina"
+  },
+  {
+    "domanda": "In anatomia vegetale, la 'Eustele' è caratteristica di:",
+    "opzioni": [
+      "A) Radici di Monocotiledoni",
+      "B) Fusti di Dicotiledoni e Gimnosperme",
+      "C) Foglie di felci",
+      "D) Alghe brune"
+    ],
+    "risposta_corretta": "B) Fusti di Dicotiledoni e Gimnosperme"
+  },
+  {
+    "domanda": "Cosa si intende per 'Tessuti Segregatori'?",
+    "opzioni": [
+      "A) Tessuti che separano fisicamente la radice dal fusto",
+      "B) Tessuti specializzati nell'accumulo o espulsione di metaboliti secondari (resine, oli, latici)",
+      "C) Cellule che dividono il nucleo in due",
+      "D) Tessuti morti che sostengono la pianta"
+    ],
+    "risposta_corretta": "B) Tessuti specializzati nell'accumulo o espulsione di metaboliti secondari (resine, oli, latici)"
+  },
+  {
+    "domanda": "Il 'Felloderma' è un tessuto prodotto dal:",
+    "opzioni": [
+      "A) Cambio cribro-vascolare verso l'interno",
+      "B) Fellogeno verso l'interno",
+      "C) Protoderma verso l'esterno",
+      "D) Meristema apicale"
+    ],
+    "risposta_corretta": "B) Fellogeno verso l'interno"
+  },
+  {
+    "domanda": "Qual è il principale componente della 'Sporopollenina'?",
+    "opzioni": [
+      "A) Carboidrati semplici",
+      "B) Polimeri complessi altamente resistenti presenti nell'esina del polline",
+      "C) Proteine del citoscheletro",
+      "D) Fosfolipidi di membrana"
+    ],
+    "risposta_corretta": "B) Polimeri complessi altamente resistenti presenti nell'esina del polline"
+  },
+  {
+    "domanda": "Nelle piante C4, dove avviene la fissazione definitiva della $CO_2$ tramite il ciclo di Calvin?",
+    "opzioni": [
+      "A) Nelle cellule del mesofillo",
+      "B) Nelle cellule della guaina del fascio",
+      "C) Negli stomi",
+      "D) Nelle radici"
+    ],
+    "risposta_corretta": "B) Nelle cellule della guaina del fascio"
+  },
+  {
+    "domanda": "Cosa sono le 'Antocianine' e dove si accumulano?",
+    "opzioni": [
+      "A) Pigmenti fotosintetici nei cloroplasti",
+      "B) Pigmenti idrosolubili (rossi/blu) che si accumulano nel vacuolo",
+      "C) Ormoni della crescita nel nucleo",
+      "D) Proteine di riserva nel seme"
+    ],
+    "risposta_corretta": "B) Pigmenti idrosolubili (rossi/blu) che si accumulano nel vacuolo"
+  },
+  {
+    "domanda": "Quale tipo di 'Parenchima' è specializzato nella fotosintesi?",
+    "opzioni": [
+      "A) Parenchima aerifero",
+      "B) Clorenchima (parenchima clorofilliano)",
+      "C) Parenchima acquifero",
+      "D) Parenchima conduttore"
+    ],
+    "risposta_corretta": "B) Clorenchima (parenchima clorofilliano)"
+  },
+  {
+    "domanda": "Cos'è la 'Cuffia' (o caliptra) della radice?",
+    "opzioni": [
+      "A) Un tessuto che produce polline",
+      "B) Un cappuccio di cellule che protegge l'apice radicale e percepisce la gravità",
+      "C) La zona dove nascono i peli radicali",
+      "D) Lo strato esterno del seme"
+    ],
+    "risposta_corretta": "B) Un cappuccio di cellule che protegge l'apice radicale e percepisce la gravità"
+  },
+  {
+    "domanda": "Le 'Idioblasti a cristalli' (es. ossalato di calcio) servono principalmente a:",
+    "opzioni": [
+      "A) Produrre energia",
+      "B) Difesa contro l'erbiboria e regolazione del calcio",
+      "C) Trasportare ossigeno",
+      "D) Rafforzare lo xilema"
+    ],
+    "risposta_corretta": "B) Difesa contro l'erbiboria e regolazione del calcio"
+  },
+  {
+    "domanda": "Qual è il rapporto tra 'Xilema' e 'Floema' in un fascio collaterale chiuso?",
+    "opzioni": [
+      "A) Lo xilema è esterno, il floema è interno; presenza di cambio",
+      "B) Lo xilema è rivolto verso il centro, il floema verso l'esterno; assenza di cambio",
+      "C) Sono mescolati in modo casuale",
+      "D) Lo xilema circonda completamente il floema"
+    ],
+    "risposta_corretta": "B) Lo xilema è rivolto verso il centro, il floema verso l'esterno; assenza di cambio"
+  },
+  {
+    "domanda": "Nel seme del mais, cos'è lo 'Scutello'?",
+    "opzioni": [
+      "A) Il tegumento esterno",
+      "B) L'unico cotiledone trasformato in organo di assorbimento dei nutrienti dall'endosperma",
+      "C) La radice embrionale",
+      "D) Il fiore maschile"
+    ],
+    "risposta_corretta": "B) L'unico cotiledone trasformato in organo di assorbimento dei nutrienti dall'endosperma"
+  },
+  {
+    "domanda": "Qual è la funzione del 'Perissoma' nelle cellule vegetali durante la fotorespirazione?",
+    "opzioni": [
+      "A) Sintesi dei lipidi",
+      "B) Metabolismo del glicolato prodotto dalla Rubisco",
+      "C) Fissazione del carbonio",
+      "D) Produzione di amido"
+    ],
+    "risposta_corretta": "B) Metabolismo del glicolato prodotto dalla Rubisco"
+  },
+  {
+    "domanda": "Cosa differenzia il 'Legno di Reazione' delle Angiosperme (legno di tensione) da quello delle Gimnosperme (legno di compressione)?",
+    "opzioni": [
+      "A) Le Angiosperme lo producono sul lato inferiore del ramo",
+      "B) Le Angiosperme lo producono sul lato superiore, ricco di fibre gelatinose",
+      "C) Non esiste il legno di reazione nelle Angiosperme",
+      "D) Le Gimnosperme non usano lignina per il sostegno"
+    ],
+    "risposta_corretta": "B) Le Angiosperme lo producono sul lato superiore, ricco di fibre gelatinose"
+  },
+  {
+    "domanda": "I 'Glicosidi Cardioattivi' sono esempi di:",
+    "opzioni": [
+      "A) Metaboliti primari essenziali",
+      "B) Metaboliti secondari usati dalle piante come difesa chimica",
+      "C) Carboidrati di riserva del vacuolo",
+      "D) Proteine strutturali del citoscheletro"
+    ],
+    "risposta_corretta": "B) Metaboliti secondari usati dalle piante come difesa chimica"
+  },
+  {
+    "domanda": "Qual è lo scopo del 'Trasporto Elettronico Ciclico' nei cloroplasti?",
+    "opzioni": [
+      "A) Produrre solo NADPH",
+      "B) Produrre ATP supplementare senza produrre NADPH",
+      "C) Fissare l'ossigeno",
+      "D) Rompere la molecola di acqua"
+    ],
+    "risposta_corretta": "B) Produrre ATP supplementare senza produrre NADPH"
+  },
+  {
+    "domanda": "Cosa sono le 'Lenticelle' dal punto di vista anatomico?",
+    "opzioni": [
+      "A) Aperture stomatiche nell'epidermide",
+      "B) Zone del periderma dove il fellogeno produce cellule parenchimatiche scarsamente collegate",
+      "C) Cicatrici lasciate dalle foglie cadute",
+      "D) Gruppi di peli radicali lignificati"
+    ],
+    "risposta_corretta": "B) Zone del periderma dove il fellogeno produce cellule parenchimatiche scarsamente collegate"
+  },
+  {
+    "domanda": "Cos'è un 'Fascio Cribro-Vascolare Collaterale Aperto'?",
+    "opzioni": [
+      "A) Un fascio che permette il passaggio di aria",
+      "B) Un fascio con xilema e floema separati da una striscia di cambio (meristema)",
+      "C) Un fascio tipico delle Monocotiledoni",
+      "D) Un fascio senza xilema"
+    ],
+    "risposta_corretta": "B) Un fascio con xilema e floema separati da una striscia di cambio (meristema)"
+  },
+  {
+    "domanda": "L' 'Inulina' è un carboidrato di riserva tipico di quali piante?",
+    "opzioni": [
+      "A) Graminacee",
+      "B) Asteraceae (es. Topinambur, Cicoria)",
+      "C) Conifere",
+      "D) Muschi"
+    ],
+    "risposta_corretta": "B) Asteraceae (es. Topinambur, Cicoria)"
+  },
+  {
+    "domanda": "Qual è il meccanismo d'azione dei 'Nettari'?",
+    "opzioni": [
+      "A) Diffusione passiva di acqua",
+      "B) Secrezione attiva di zuccheri tramite trasportatori o esocitosi",
+      "C) Rottura delle cellule epidermiche",
+      "D) Assorbimento di polline"
+    ],
+    "risposta_corretta": "B) Secrezione attiva di zuccheri tramite trasportatori o esocitosi"
+  },
+  {
+    "domanda": "In una foglia dorsiventrale, il 'Parenchima a Palizzata' si trova:",
+    "opzioni": [
+      "A) Sul lato inferiore per evitare la luce",
+      "B) Sul lato superiore (adassiale), ottimizzato per la cattura della luce",
+      "C) Al centro della foglia, circondato dai vasi",
+      "D) Solo lungo i margini della foglia"
+    ],
+    "risposta_corretta": "B) Sul lato superiore (adassiale), ottimizzato per la cattura della luce"
+  },
+  {
+    "domanda": "Cos'è la 'Cariosside'?",
+    "opzioni": [
+      "A) Un frutto carnoso tipo bacca",
+      "B) Un frutto secco indeiscente dove il tegumento del seme è fuso con il pericarpo (tipico dei cereali)",
+      "C) Un seme nudo senza protezione",
+      "D) Un'infiorescenza maschile"
+    ],
+    "risposta_corretta": "B) Un frutto secco indeiscente dove il tegumento del seme è fuso con il pericarpo (tipico dei cereali)"
+  },
+  {
+    "domanda": "Le 'Gimnosperme' sono piante:",
+    "opzioni": [
+      "A) Con fiori vistosi e frutti carnosi",
+      "B) Con ovuli portati su squame di coni e non protetti da un ovario",
+      "C) Senza tessuti vascolari",
+      "D) Che si riproducono solo per via vegetativa"
+    ],
+    "risposta_corretta": "B) Con ovuli portati su squame di coni e non protetti da un ovario"
+  },
+  {
+    "domanda": "Qual è la funzione del 'Fuso Mitotico' nelle cellule vegetali?",
+    "opzioni": [
+      "A) Formare la parete cellulare",
+      "B) Separare i cromatidi fratelli durante la divisione nucleare",
+      "C) Trasportare i cloroplasti",
+      "D) Sintetizzare amido"
+    ],
+    "risposta_corretta": "B) Separare i cromatidi fratelli durante la divisione nucleare"
+  },
+  {
+    "domanda": "Cosa differenzia le 'Alte' verdi dalle piante terrestri (Embriofite)?",
+    "opzioni": [
+      "A) Le alghe non hanno clorofilla",
+      "B) Le Embriofite proteggono lo zigote/embrione all'interno di tessuti materni",
+      "C) Le alghe hanno radici più profonde",
+      "D) Le Embriofite non fanno fotosintesi"
+    ],
+    "risposta_corretta": "B) Le Embriofite proteggono lo zigote/embrione all'interno di tessuti materni"
+  },
+  {
+    "domanda": "Qual è il ruolo dei 'Tannini'?",
+    "opzioni": [
+      "A) Attirare gli impollinatori",
+      "B) Difesa contro patogeni ed erbivori grazie alla loro capacità di precipitare le proteine",
+      "C) Riserva di energia rapida",
+      "D) Regolazione dell'apertura stomatica"
+    ],
+    "risposta_corretta": "B) Difesa contro patogeni ed erbivori grazie alla loro capacità di precipitare le proteine"
+  },
+  {
+    "domanda": "Nel mais, le 'Zone Vitree' dell'endosperma sono caratterizzate da:",
+    "opzioni": [
+      "A) Solo aria",
+      "B) Granuli di amido strettamente impacchettati con una matrice proteica densa",
+      "C) Assenza di proteine",
+      "D) Alto contenuto di acqua"
+    ],
+    "risposta_corretta": "B) Granuli di amido strettamente impacchettati con una matrice proteica densa"
+  },
+  {
+    "domanda": "La 'Protoplastina' è un termine associato a:",
+    "opzioni": [
+      "A) Un enzima del ciclo di Calvin",
+      "B) Lo stato del citoplasma in cellule giovani",
+      "C) Una tecnica di fusione cellulare",
+      "D) Un tipo di pigmento accessorio"
+    ],
+    "risposta_corretta": "B) Lo stato del citoplasma in cellule giovani"
+  },
+  {
+    "domanda": "Nelle Angiosperme, lo 'Stigma' serve a:",
+    "opzioni": [
+      "A) Produrre l'ovulo",
+      "B) Ricevere e selezionare i granuli di polline",
+      "C) Proteggere i petali",
+      "D) Fare fotosintesi"
+    ],
+    "risposta_corretta": "B) Ricevere e selezionare i granuli di polline"
+  },
+  {
+    "domanda": "Cosa accade nel 'Centro Quiescente' dell'apice radicale?",
+    "opzioni": [
+      "A) Le cellule si dividono molto rapidamente",
+      "B) Le cellule hanno una bassa attività mitotica e fungono da riserva di cellule staminali",
+      "C) Si formano i primi vasi del legno",
+      "D) Muoiono le cellule della cuffia"
+    ],
+    "risposta_corretta": "B) Le cellule hanno una bassa attività mitotica e fungono da riserva di cellule staminali"
+  },
+  {
+    "domanda": "Qual è la differenza tra 'Apocitosi' e 'Sincizio'?",
+    "opzioni": [
+      "A) L'apocitosi è la morte cellulare, il sincizio la vita",
+      "B) Entrambi descrivono strutture polinucleate, ma l'apocitosi deriva da divisioni nucleari senza citodieresi",
+      "C) Il sincizio avviene solo nelle radici",
+      "D) Non esistono tali termini in botanica"
+    ],
+    "risposta_corretta": "B) Entrambi descrivono strutture polinucleate, ma l'apocitosi deriva da divisioni nucleari senza citodieresi"
+  },
+  {
+    "domanda": "Cos'è lo 'Xilema Primario'?",
+    "opzioni": [
+      "A) Il legno prodotto dal cambio",
+      "B) Il tessuto conduttore derivante dal procambio del meristema apicale",
+      "C) Il tessuto che trasporta zuccheri",
+      "D) La corteccia esterna"
+    ],
+    "risposta_corretta": "B) Il tessuto conduttore derivante dal procambio del meristema apicale"
+  },
+  {
+    "domanda": "Quale organello è coinvolto nella sintesi di precursori della lignina?",
+    "opzioni": [
+      "A) Vacuolo",
+      "B) Reticolo Endoplasmatico e Apparato di Golgi",
+      "C) Nucleo",
+      "D) Ribosomi liberi"
+    ],
+    "risposta_corretta": "B) Reticolo Endoplasmatico e Apparato di Golgi"
+  },
+  {
+    "domanda": "Cosa sono le 'Idioblasti'?",
+    "opzioni": [
+      "A) Cellule staminali indifferenziate",
+      "B) Cellule specializzate che differiscono per forma e funzione dalle cellule circostanti dello stesso tessuto",
+      "C) Cellule morte del legno",
+      "D) Parassiti delle piante"
+    ],
+    "risposta_corretta": "B) Cellule specializzate che differiscono per forma e funzione dalle cellule circostanti dello stesso tessuto"
+  },
+  {
+    "domanda": "Il 'Gametofito' è la generazione che produce:",
+    "opzioni": [
+      "A) Spore per meiosi",
+      "B) Gameti per mitosi",
+      "C) Semi per fecondazione",
+      "D) Polline per osmosi"
+    ],
+    "risposta_corretta": "B) Gameti per mitosi"
+  },
+  {
+    "domanda": "Qual è la funzione del 'Sospensore' nell'embriogenesi?",
+    "opzioni": [
+      "A) Proteggere l'ovulo",
+      "B) Spingere l'embrione all'interno dell'endosperma per facilitare l'assorbimento dei nutrienti",
+      "C) Formare le prime foglie fotosintetiche",
+      "D) Ancorare la pianta al terreno"
+    ],
+    "risposta_corretta": "B) Spingere l'embrione all'interno dell'endosperma per facilitare l'assorbimento dei nutrienti"
+  },
+  {
+    "domanda": "Le 'Pteridofite' sono dette Crittogame Vascolari perché:",
+    "opzioni": [
+      "A) Hanno fiori nascosti",
+      "B) Si riproducono per spore (nascoste) ma possiedono xilema e floema",
+      "C) Vivono sottoterra",
+      "D) Non hanno bisogno di acqua per la fecondazione"
+    ],
+    "risposta_corretta": "B) Si riproducono per spore (nascoste) ma possiedono xilema e floema"
+  },
+  {
+    "domanda": "Cos'è la 'Vernalizzazione'?",
+    "opzioni": [
+      "A) La colorazione verde delle foglie in primavera",
+      "B) Il fabbisogno di un periodo di freddo per indurre la fioritura",
+      "C) La mutazione indotta dai raggi UV",
+      "D) La caduta delle foglie"
+    ],
+    "risposta_corretta": "B) Il fabbisogno di un periodo di freddo per indurre la fioritura"
+  },
+  {
+    "domanda": "I 'Tricomi Ghiandolari' producono:",
+    "opzioni": [
+      "A) Solo acqua distillata",
+      "B) Metaboliti secondari come oli essenziali o resine",
+      "C) Cellulosa per la parete",
+      "D) Clorofilla accessoria"
+    ],
+    "risposta_corretta": "B) Metaboliti secondari come oli essenziali o resine"
+  },
+  {
+    "domanda": "Quale evento segna la fine della 'Quiescenza' del seme?",
+    "opzioni": [
+      "A) La caduta dal ramo",
+      "B) L'imbibizione (assorbimento d'acqua)",
+      "C) La perdita totale di ossigeno",
+      "D) La sintesi di lignina"
+    ],
+    "risposta_corretta": "B) L'imbibizione (assorbimento d'acqua)"
+  },
+  {
+    "domanda": "Cos'è l' 'Atactostele'?",
+    "opzioni": [
+      "A) Una stele con vasi disposti a stella",
+      "B) Una stele con fasci vascolari sparsi nel parenchima (tipica delle Monocotiledoni)",
+      "C) Un fusto senza vasi",
+      "D) La struttura della radice delle Gimnosperme"
+    ],
+    "risposta_corretta": "B) Una stele con fasci vascolari sparsi nel parenchima (tipica delle Monocotiledoni)"
+  },
+  {
+    "domanda": "Nello xilema, le 'Tilosi' sono:",
+    "opzioni": [
+      "A) Nuovi vasi prodotti in primavera",
+      "B) Estroflessioni di cellule parenchimatiche che ostruiscono i vasi non più funzionali",
+      "C) Malattie fungine dei cereali",
+      "D) Cristalli di ossalato"
+    ],
+    "risposta_corretta": "B) Estroflessioni di cellule parenchimatiche che ostruiscono i vasi non più funzionali"
+  },
+  {
+    "domanda": "Qual è il ruolo del 'Plastochrono'?",
+    "opzioni": [
+      "A) Misurare l'età della pianta",
+      "B) Intervallo di tempo tra la formazione di due primordi fogliari successivi",
+      "C) La durata della fotosintesi giornaliera",
+      "D) Il tempo di maturazione del frutto"
+    ],
+    "risposta_corretta": "B) Intervallo di tempo tra la formazione di due primordi fogliari successivi"
+  },
+  {
+    "domanda": "Cosa si intende per 'Eterosporia'?",
+    "opzioni": [
+      "A) Produzione di spore maschili e femminili morfologicamente identiche",
+      "B) Produzione di microspore (maschili) e megaspore (femminili)",
+      "C) Riproduzione tramite semi di diverse dimensioni",
+      "D) Spore che germinano solo al buio"
+    ],
+    "risposta_corretta": "B) Produzione di microspore (maschili) e megaspore (femminili)"
+  },
+  {
+    "domanda": "Qual è la funzione del 'Periderma'?",
+    "opzioni": [
+      "A) Fare fotosintesi nel fusto giovane",
+      "B) Sostituire l'epidermide come tessuto di protezione negli organi con crescita secondaria",
+      "C) Trasportare linfa elaborata",
+      "D) Assorbire acqua dal suolo"
+    ],
+    "risposta_corretta": "B) Sostituire l'epidermide come tessuto di protezione negli organi con crescita secondaria"
+  },
+  {
+    "domanda": "Il 'Canale Resinifero' è circondato da cellule:",
+    "opzioni": [
+      "A) Morte",
+      "B) Epiteliali secernenti",
+      "C) Di guardia stomatiche",
+      "D) Legnose lignificate"
+    ],
+    "risposta_corretta": "B) Epiteliali secernenti"
+  },
+  {
+    "domanda": "La 'Pressione di Turgore' è generata da:",
+    "opzioni": [
+      "A) La contrazione dei mitocondri",
+      "B) L'ingresso di acqua nel vacuolo per osmosi e la spinta contro la parete cellulare",
+      "C) La perdita di sali dalle radici",
+      "D) Il vento che soffia sulle foglie"
+    ],
+    "risposta_corretta": "B) L'ingresso di acqua nel vacuolo per osmosi e la spinta contro la parete cellulare"
+  },
+  {
+    "domanda": "Nelle Angiosperme, da cosa è formato il 'Poliere'?",
+    "opzioni": [
+      "A) Da una sola cellula",
+      "B) Dal gametofito maschile immaturo (cellula vegetativa + cellula generativa)",
+      "C) Solo da DNA nudo",
+      "D) Dallo zigote"
+    ],
+    "risposta_corretta": "B) Dal gametofito maschile immaturo (cellula vegetativa + cellula generativa)"
+  },
+  {
+    "domanda": "Cos'è la 'Guttazione'?",
+    "opzioni": [
+      "A) La caduta dei frutti",
+      "B) Escrezione di acqua liquida dagli idatodi per pressione radicale",
+      "C) La fusione delle cellule",
+      "D) L'appassimento della pianta"
+    ],
+    "risposta_corretta": "B) Escrezione di acqua liquida dagli idatodi per pressione radicale"
+  },
+  {
+    "domanda": "Quale ormone vegetale è principalmente coinvolto nella 'Dominanza Apicale'?",
+    "opzioni": [
+      "A) Etilene",
+      "B) Auxina",
+      "C) Acido Abscissico",
+      "D) Gibberelline"
+    ],
+    "risposta_corretta": "B) Auxina"
+  },
+  {
+    "domanda": "Cos'è l' 'Endoderma'?",
+    "opzioni": [
+      "A) Il tessuto più interno del legno",
+      "B) Lo strato più interno della corteccia radicale che funge da barriera selettiva",
+      "C) La pelle dei frutti",
+      "D) Il citoplasma del polline"
+    ],
+    "risposta_corretta": "B) Lo strato più interno della corteccia radicale che funge da barriera selettiva"
+  },
+  {
+    "domanda": "Quale di queste piante è una 'Monocotiledone'?",
+    "opzioni": [
+      "A) Quercia",
+      "B) Mais (Zea mais)",
+      "C) Fagiolo",
+      "D) Rosa"
+    ],
+    "risposta_corretta": "B) Mais (Zea mais)"
+  },
+  {
+    "domanda": "La 'Lignificazione' avviene solitamente nella:",
+    "opzioni": [
+      "A) Lamella mediana",
+      "B) Parete secondaria",
+      "C) Membrana plasmatica",
+      "D) Parete primaria delle cellule giovani"
+    ],
+    "risposta_corretta": "B) Parete secondaria"
+  },
+  {
+    "domanda": "Cosa si intende per 'Riproduzione Vegetativa'?",
+    "opzioni": [
+      "A) Produzione di semi per fecondazione",
+      "B) Moltiplicazione asessuata tramite mitosi (stoloni, tuberi, bulbi)",
+      "C) Produzione di spore meiotiche",
+      "D) Crescita delle foglie in primavera"
+    ],
+    "risposta_corretta": "B) Moltiplicazione asessuata tramite mitosi (stoloni, tuberi, bulbi)"
+  },
+  {
+    "domanda": "Il 'Corpo Basale' è una struttura associata a:",
+    "opzioni": [
+      "A) Radici",
+      "B) Ciglia e flagelli dei gameti mobili",
+      "C) Stomi",
+      "D) Cloroplasti"
+    ],
+    "risposta_corretta": "B) Ciglia e flagelli dei gameti mobili"
+  },
+  {
+    "domanda": "Cos'è il 'Mesofillo'?",
+    "opzioni": [
+      "A) Il tessuto parenchimatico fotosintetico della foglia",
+      "B) Il centro della radice",
+      "C) Il fusto delle piante acquatiche",
+      "D) Lo strato esterno del polline"
+    ],
+    "risposta_corretta": "A) Il tessuto parenchimatico fotosintetico della foglia"
+  },
+  {
+    "domanda": "Quale pigmento accessorio è tipico delle 'Alghe Rosse'?",
+    "opzioni": [
+      "A) Clorofilla b",
+      "B) Ficoeritrina",
+      "C) Fucoxantina",
+      "D) Carotene"
+    ],
+    "risposta_corretta": "B) Ficoeritrina"
+  },
+  {
+    "domanda": "Cosa si intende per 'Embrione' nelle piante terrestri?",
+    "opzioni": [
+      "A) Lo stadio unicellulare della vita",
+      "B) Lo sporofito giovane che si sviluppa dal gametofito femminile",
+      "C) Il polline appena germinato",
+      "D) Una foglia in miniatura"
+    ],
+    "risposta_corretta": "B) Lo sporofito giovane che si sviluppa dal gametofito femminile"
+  },
+  {
+    "domanda": "Qual è la funzione del 'Fellogeno'?",
+    "opzioni": [
+      "A) Produrre xilema e floema",
+      "B) Produrre sughero e felloderma (accrescimento secondario tegumentale)",
+      "C) Formare i peli radicali",
+      "D) Dirigere la fotosintesi"
+    ],
+    "risposta_corretta": "B) Produrre sughero e felloderma (accrescimento secondario tegumentale)"
+  },
+  {
+    "domanda": "La 'Cutina' è un componente di:",
+    "opzioni": [
+      "A) Legno",
+      "B) Cuticola epidermica delle parti aeree",
+      "C) Radici profonde",
+      "D) Mitocondri"
+    ],
+    "risposta_corretta": "B) Cuticola epidermica delle parti aeree"
+  },
+  {
+    "domanda": "Qual è lo scopo del 'Ciclo di Krebs' nella cellula vegetale?",
+    "opzioni": [
+      "A) Fissare la $CO_2$",
+      "B) Ossidare il piruvato per produrre energia (ATP, NADH) e precursori metabolici",
+      "C) Produrre ossigeno",
+      "D) Sintetizzare cellulosa"
+    ],
+    "risposta_corretta": "B) Ossidare il piruvato per produrre energia (ATP, NADH) e precursori metabolici"
+  },
+  {
+    "domanda": "Cos'è la 'Sifonogamia'?",
+    "opzioni": [
+      "A) Fecondazione mediata da insetti",
+      "B) Trasferimento dei nuclei spermatici tramite un tubetto pollinico verso l'ovulo",
+      "C) Respirazione tramite tubi",
+      "D) Assorbimento di acqua per capillarità"
+    ],
+    "risposta_corretta": "B) Trasferimento dei nuclei spermatici tramite un tubetto pollinico verso l'ovulo"
+  },
+  {
+    "domanda": "Cosa sono le 'Trachee' (vasi)?",
+    "opzioni": [
+      "A) Cellule vive conduttrici di zuccheri",
+      "B) Elementi dello xilema formati da file di cellule morte con pareti terminali perforate o assenti",
+      "C) Aperture per l'aria nelle foglie",
+      "D) Radici che crescono in aria"
+    ],
+    "risposta_corretta": "B) Elementi dello xilema formati da file di cellule morte con pareti terminali perforate o assenti"
+  },
+  {
+    "domanda": "In genetica vegetale, cosa significa 'Poliploidia'?",
+    "opzioni": [
+      "A) Perdita di cromosomi",
+      "B) Possesso di più di due set completi di cromosomi (comune nelle Angiosperme)",
+      "C) Riproduzione solo per via maschile",
+      "D) Presenza di molti nuclei in una cellula"
+    ],
+    "risposta_corretta": "B) Possesso di più di due set completi di cromosomi (comune nelle Angiosperme)"
+  },
+  {
+    "domanda": "Qual è la funzione delle 'Sclereidi'?",
+    "opzioni": [
+      "A) Trasporto",
+      "B) Sostegno meccanico e protezione in tessuti maturi",
+      "C) Fotosintesi",
+      "D) Assorbimento d'acqua"
+    ],
+    "risposta_corretta": "B) Sostegno meccanico e protezione in tessuti maturi"
+  },
+  {
+    "domanda": "Cos'è il 'Periciclo'?",
+    "opzioni": [
+      "A) Lo strato più esterno della foglia",
+      "B) Lo strato di cellule esterne al tessuto vascolare della radice da cui si originano le radici laterali",
+      "C) Un tipo di frutto",
+      "D) Il ciclo di vita di un parassita"
+    ],
+    "risposta_corretta": "B) Lo strato di cellule esterne al tessuto vascolare della radice da cui si originano le radici laterali"
+  },
+  {
+    "domanda": "La 'Riproduzione Sessuale' comporta:",
+    "opzioni": [
+      "A) Solo mitosi",
+      "B) Alternanza di meiosi e singamia (fecondazione)",
+      "C) Creazione di cloni",
+      "D) Assenza di gameti"
+    ],
+    "risposta_corretta": "B) Alternanza di meiosi e singamia (fecondazione)"
+  },
+  {
+    "domanda": "Cos'è l' 'Endosperma'?",
+    "opzioni": [
+      "A) La pelle del seme",
+      "B) Tessuto di riserva del seme che nutre l'embrione",
+      "C) Il polline",
+      "D) L'apparato radicale giovane"
+    ],
+    "risposta_corretta": "B) Tessuto di riserva del seme che nutre l'embrione"
+  },
+  {
+    "domanda": "Quale parte della cellula vegetale è sede della 'Glicosilazione' delle proteine?",
+    "opzioni": [
+      "A) Cloroplasto",
+      "B) Apparato di Golgi",
+      "C) Vacuolo",
+      "D) Nucleo"
+    ],
+    "risposta_corretta": "B) Apparato di Golgi"
+  },
+  {
+    "domanda": "Cos'è un 'Amiloplasto'?",
+    "opzioni": [
+      "A) Un cloroplasto che ha perso il colore",
+      "B) Un leucoplasto specializzato nell'accumulo di granuli di amido",
+      "C) Una cellula del legno",
+      "D) Un tipo di stoma"
+    ],
+    "risposta_corretta": "B) Un leucoplasto specializzato nell'accumulo di granuli di amido"
+  },
+  {
+    "domanda": "Qual è la differenza tra 'Imbibizione' e 'Osmosi'?",
+    "opzioni": [
+      "A) L'imbibizione richiede membrane semipermeabili",
+      "B) L'imbibizione è l'assorbimento di acqua da parte di sostanze colloidali (es. pareti, semi sechi); l'osmosi è il passaggio attraverso membrane",
+      "C) Sono lo stesso processo",
+      "D) L'osmosi avviene solo nei fiori"
+    ],
+    "risposta_corretta": "B) L'imbibizione è l'assorbimento di acqua da parte di sostanze colloidali (es. pareti, semi sechi); l'osmosi è il passaggio attraverso membrane"
+  },
+  {
+    "domanda": "Cosa sono i 'Plasmodesmi'?",
+    "opzioni": [
+      "A) Organelli per la fotosintesi",
+      "B) Canali citoplasmatici che mettono in comunicazione cellule adiacenti attraversando le pareti",
+      "C) Parti del nucleo",
+      "D) Cellule della radice"
+    ],
+    "risposta_corretta": "B) Canali citoplasmatici che mettono in comunicazione cellule adiacenti attraversando le pareti"
+  },
+  {
+    "domanda": "Quale tessuto forma le 'Fibre' tessili (es. lino, canapa)?",
+    "opzioni": [
+      "A) Parenchima",
+      "B) Sclerenchima",
+      "C) Xilema",
+      "D) Epidermide"
+    ],
+    "risposta_corretta": "B) Sclerenchima"
+  },
+  {
+    "domanda": "Cos'è la 'Protodermide'?",
+    "opzioni": [
+      "A) La pelle delle radici vecchie",
+      "B) Il meristema primario che darà origine all'epidermide",
+      "C) Un tipo di alga",
+      "D) Il citoplasma primordiale"
+    ],
+    "risposta_corretta": "B) Il meristema primario che darà origine all'epidermide"
+  },
+  {
+    "domanda": "Qual è lo scopo dei 'Cristalli di Ossalato di Calcio' nelle cellule?",
+    "opzioni": [
+      "A) Riserva di zucchero",
+      "B) Regolazione dei livelli di calcio e difesa contro gli erbivori",
+      "C) Fare fotosintesi al buio",
+      "D) Sostenere il nucleo"
+    ],
+    "risposta_corretta": "B) Regolazione dei livelli di calcio e difesa contro gli erbivori"
+  },
+  {
+    "domanda": "In quale fase del ciclo cellulare avviene la 'Duplicazione del DNA'?",
+    "opzioni": [
+      "A) G1",
+      "B) S (Sintesi)",
+      "C) G2",
+      "D) Mitosi"
+    ],
+    "risposta_corretta": "B) S (Sintesi)"
+  },
+  {
+    "domanda": "Cos'è l' 'Ovario' in un fiore?",
+    "opzioni": [
+      "A) La parte che produce il polline",
+      "B) La base del carpello che contiene gli ovuli e che diventerà frutto",
+      "C) Un petalo modificato",
+      "D) La radice del fiore"
+    ],
+    "risposta_corretta": "B) La base del carpello che contiene gli ovuli e che diventerà frutto"
+  },
+  {
+    "domanda": "Cosa si intende per 'Accrescimento Intercalare'?",
+    "opzioni": [
+      "A) Crescita solo in cima",
+      "B) Crescita che avviene in zone distanti dagli apici, comune alla base dei nodi delle Graminacee",
+      "C) Crescita delle radici laterali",
+      "D) Divisione cellulare nel vacuolo"
+    ],
+    "risposta_corretta": "B) Crescita che avviene in zone distanti dagli apici, comune alla base dei nodi delle Graminacee"
+  },
+  {
+    "domanda": "Qual è la funzione dei 'Tubi Cribrosi'?",
+    "opzioni": [
+      "A) Trasporto di acqua e sali minerali",
+      "B) Trasporto di linfa elaborata (zuccheri e amminoacidi) nel floema",
+      "C) Sostegno meccanico",
+      "D) Protezione contro i parassiti"
+    ],
+    "risposta_corretta": "B) Trasporto di linfa elaborata (zuccheri e amminoacidi) nel floema"
+  }
+]
       let quiz = [];
       let userAnswers = [];
       let current = 0;
